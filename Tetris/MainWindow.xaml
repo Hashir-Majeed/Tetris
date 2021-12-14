@@ -62,7 +62,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Name="S1" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[0].c}"/>
+        <Button Name="S1" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Background="Red" Visibility="{Binding board.pos[0].c, Converter={StaticResource VConv}}" Grid.ColumnSpan="4" Height="79" Margin="16,16,18,10" Grid.RowSpan="3" Width="110" Click="S1_Click"/>
         <Rectangle Name="S2" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[1].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S3" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[2].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S4" Grid.Column="6" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[3].c, Converter={StaticResource VConv}}"/>

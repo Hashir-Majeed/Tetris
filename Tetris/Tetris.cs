@@ -8,18 +8,23 @@ namespace Tetris
 {
     class TetrisGame
     {
+        public Board b;
         public TetrisGame()
         {
-            Board b = new Board();
+            b = new Board();
         }
 
-        public Board board
+        public Board GetBoard()
         {
-            get
-            {
-                return board;
-            }
+
+            return b;
 
         }
+
+        public void Update()
+        {
+            b.Update(new Square(5));
+        }
+
     }
 }

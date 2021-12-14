@@ -9,16 +9,29 @@ namespace Tetris
 {
     class Board
     {
-        private ObservableCollection<Position> C = new ObservableCollection<Position>();
+        private ObservableCollection<Square> C = new ObservableCollection<Square>();
+        private const int WIDTH = 10;
+        private const int HEIGHT = 20;
+        private Square[,] board;
         public Board()
         {
             for (int x = 0; x < 52; x = x + 1)
             {
-                C.Add(new Position(null));
+                C.Add(null);
+                
+            }
+
+            board = new Square[WIDTH, HEIGHT];
+            for (int i = 0; i < WIDTH; i++)
+            {
+                for (int j = 0; j < HEIGHT; j++)
+                {
+                    board[i, j] = new Square(0);
+                }
             }
         }
 
-        public ObservableCollection<Position> pos
+        public ObservableCollection<Square> pos
         {
             get
             {
@@ -28,17 +41,28 @@ namespace Tetris
 
         }
 
-        public void Update(Square v)
+        public void Update(Square x)
         {
-            /*if (C[v.getSuit() * 13 + v.getPos()].c == null)
-            {
-                C[v.getSuit() * 13 + v.getPos()].c = v;
-            }
-            else
-            {
-
-            }*/
+            C[x.getPos()] = x;
         }
+
+
+        public Square[,] GetBoard()
+        {
+            return board;
+        }
+
+        /*public void PlaceTetramino(Tetramino t)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    board[i, j].SetValue(t.GetTetramino()[i, j].GetValue());
+                }
+            }
+        }*/
+
 
     }
 }
