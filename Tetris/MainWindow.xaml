@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Tetris"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
-    
+
     <Window.Resources>
         <local:PieceVisibility x:Key="VConv" />
     </Window.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -62,10 +62,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Name="S1" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Background="Red" Visibility="{Binding board.pos[0].c, Converter={StaticResource VConv}}" Grid.ColumnSpan="4" Height="79" Margin="16,16,18,10" Grid.RowSpan="3" Width="110" Click="S1_Click"/>
-        <Rectangle Name="S2" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[1].c, Converter={StaticResource VConv}}"/>
-        <Rectangle Name="S3" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[2].c, Converter={StaticResource VConv}}"/>
-        <Rectangle Name="S4" Grid.Column="6" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[3].c, Converter={StaticResource VConv}}"/>
+        <Button Name="S1" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Background="Red"  Grid.ColumnSpan="4" Height="79" Margin="10,16,24,10" Grid.RowSpan="3" Width="110" Click="S1_Click" RenderTransformOrigin="0.607,2.51"/>
+        <TextBlock  FontSize="15" Name="S2" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Text="{Binding Path=[0]}" Margin="26,17,10,0" Height="53" Grid.RowSpan="2" Grid.ColumnSpan="3" Width="72"/>
+        <Button Name="S3" Grid.Column="8" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Background="Green" Grid.ColumnSpan="8" Height="79" Margin="16,16,10,10" Grid.RowSpan="3" Width="262" RenderTransformOrigin="0.797,3.589" Click="S3_Click" />
+        <!--<Rectangle Name="S4" Grid.Column="6" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[3].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S5" Grid.Column="7" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[4].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S6" Grid.Column="8" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[5].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S7" Grid.Column="9" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[6].c, Converter={StaticResource VConv}}"/>
@@ -74,6 +74,6 @@
         <Rectangle Name="S10" Grid.Column="12" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[9].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S11" Grid.Column="13" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[10].c, Converter={StaticResource VConv}}"/>
         <Rectangle Name="S12" Grid.Column="14" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[11].c, Converter={StaticResource VConv}}"/>
-        <Rectangle Name="S13" Grid.Column="15" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[12].c, Converter={StaticResource VConv}}"/>
+        <Rectangle Name="S13" Grid.Column="15" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Fill="Red" Stretch="Fill" Visibility="{Binding board.pos[12].c, Converter={StaticResource VConv}}"/>-->
     </Grid>
 </Window>

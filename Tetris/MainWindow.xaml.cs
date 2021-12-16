@@ -21,17 +21,32 @@ namespace Tetris
     public partial class MainWindow : Window
     {
         private TetrisGame game;
+        
         public MainWindow()
         {
             
             InitializeComponent();
             game = new TetrisGame();
-            DataContext = game;
+            
+            
+            //DataContext = testtext;
+
         }
 
         private void S1_Click(object sender, RoutedEventArgs e)
         {
-            game.Update();
+            string[] testtext = new string[1];
+            testtext[0] = "Binding";
+            //game.Update();
+            DataContext = testtext;
+        }
+
+        private void S3_Click(object sender, RoutedEventArgs e)
+        {
+            string[] testtext = new string[1];
+            testtext[0] = "Hello";
+            //game.Update();
+            DataContext = testtext;
         }
     }
 }
