@@ -56,16 +56,16 @@ namespace Tetris
             return UIBoard;
         }
 
-        /*public void PlaceTetramino(Tetramino t)
+        public void PlaceTetramino(Tetramino t, int startX, int startY)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = startX; i < startX + t.getPiece().GetLength(1); i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = startY; j < startY + t.getPiece().GetLength(1); j++)
                 {
-                    board[i, j].SetValue(t.GetTetramino()[i, j].GetValue());
+                    board[i, j].setType(t.getPiece()[i - startX, j - startY]);
                 }
             }
-        }*/
+        }
 
 
     }

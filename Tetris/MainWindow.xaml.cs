@@ -33,6 +33,29 @@ namespace Tetris
             }*/
             //DataContext = bindingVals;
             game = new TetrisGame();
+            InverseLTetramino t1 = new InverseLTetramino();
+            game.GetBoard().PlaceTetramino(t1, 7, 6);
+
+            L_Tetramino t2 = new L_Tetramino();
+            game.GetBoard().PlaceTetramino(t2, 5, 15);
+
+            Z_Tetramino t3 = new Z_Tetramino();
+            game.GetBoard().PlaceTetramino(t3, 6, 2);
+
+            InverseZ_Tetramino t4 = new InverseZ_Tetramino();
+            game.GetBoard().PlaceTetramino(t4, 2,4);
+
+            SquareTetramino t5 = new SquareTetramino();
+            game.GetBoard().PlaceTetramino(t5, 5, 11);
+
+            StraightTetramino t6 = new StraightTetramino();
+            game.GetBoard().PlaceTetramino(t6, 0, 0);
+
+            T_Tetramino t7 = new T_Tetramino();
+            game.GetBoard().PlaceTetramino(t7, 7, 17);
+
+
+
             Update();
             //DataContext = testtext;
 
