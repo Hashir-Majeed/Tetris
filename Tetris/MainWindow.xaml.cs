@@ -26,11 +26,38 @@ namespace Tetris
         {
             
             InitializeComponent();
+            /*SolidColorBrush[] bindingVals = new SolidColorBrush[200];
+            for (int i = 0; i < 200; i++)
+            {
+                bindingVals[i] = new SolidColorBrush(Colors.Blue);
+            }*/
+            //DataContext = bindingVals;
             game = new TetrisGame();
-            
-            
+            Update();
             //DataContext = testtext;
 
+        }
+
+        private void Update()
+        {
+            Square[] tempBoard = game.GetBoard().GetUIBoard();
+            SolidColorBrush[] bindingVals = new SolidColorBrush[200];
+            
+            Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
+            ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
+            ColourMatch.Add(1, new SolidColorBrush(Colors.LightBlue));
+            ColourMatch.Add(2, new SolidColorBrush(Colors.DarkBlue));
+            ColourMatch.Add(3, new SolidColorBrush(Colors.Orange));
+            ColourMatch.Add(4, new SolidColorBrush(Colors.Yellow));
+            ColourMatch.Add(5, new SolidColorBrush(Colors.Green));
+            ColourMatch.Add(6, new SolidColorBrush(Colors.Purple));
+            ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
+
+            for (int i = 0; i < 200; i++)
+            {
+                bindingVals[i] = ColourMatch[tempBoard[i].getType()];
+            }
+            DataContext = bindingVals;
         }
 
         private void S1_Click(object sender, RoutedEventArgs e)
@@ -41,12 +68,6 @@ namespace Tetris
             DataContext = testtext;
         }
 
-        private void S3_Click(object sender, RoutedEventArgs e)
-        {
-            string[] testtext = new string[1];
-            testtext[0] = "Hello";
-            //game.Update();
-            DataContext = testtext;
-        }
+        
     }
 }

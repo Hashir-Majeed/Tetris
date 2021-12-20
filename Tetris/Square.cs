@@ -9,11 +9,22 @@ namespace Tetris
     class Square
     {
         private int pos;
-        public Square(int position)
+        private int type;
+        public Square(int position, int type)
         {
-            pos = position;   
+            pos = position;
+            this.type = type;
         }
 
+        public void setType(int type)
+        {
+            this.type = type;
+        }
+
+        public int getType()
+        {
+            return type;
+        }
         public int getPos()
         {
             return pos;
