@@ -50,8 +50,6 @@ namespace Tetris
                 currentTetramino.setX(currentTetramino.getX() - 1);
                 b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
             }
-
-            
         }
 
         public void ShiftDown()

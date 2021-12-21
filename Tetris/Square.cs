@@ -10,12 +10,18 @@ namespace Tetris
     {
         private int pos;
         private int type;
+        private bool anchored;
         public Square(int position, int type)
         {
             pos = position;
             this.type = type;
+            anchored = false;
         }
 
+        public void setAnchor(bool isFixed)
+        {
+            anchored = isFixed;
+        }
         public void setType(int type)
         {
             this.type = type;

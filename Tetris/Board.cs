@@ -36,7 +36,10 @@ namespace Tetris
             for (int i = 0; i < HEIGHT; i++)
             {
                 board[0,i].setType(-1);
+                board[0, i].setAnchor(true);
+
                 board[WIDTH - 1, i].setType(-1);
+                board[WIDTH - 1, i].setAnchor(true);
             }
         }
 
