@@ -67,17 +67,12 @@ namespace Tetris
         {
             if (e.Key == Key.Space)
             {
-
-                game.RotatePiece();
-
-                       
+                game.RotatePiece();       
             }
             if (e.Key == Key.Right)
             {
-
                 game.ShiftRight();
-
-                
+       
             }
             if (e.Key == Key.Left)
             {

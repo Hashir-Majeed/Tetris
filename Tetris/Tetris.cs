@@ -32,23 +32,63 @@ namespace Tetris
 
         public void ShiftRight()
         {
-            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-            currentTetramino.setX(currentTetramino.getX() + 1);
-            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            if (CheckValidMove(2))
+            {
+                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+                currentTetramino.setX(currentTetramino.getX() + 1);
+                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            }
+
+            
         }
 
         public void ShiftLeft()
         {
-            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-            currentTetramino.setX(currentTetramino.getX() - 1);
-            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            if (CheckValidMove(1))
+            {
+                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+                currentTetramino.setX(currentTetramino.getX() - 1);
+                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            }
+
+            
         }
 
         public void ShiftDown()
         {
-            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-            currentTetramino.setY(currentTetramino.getY() + 1);
-            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            if (CheckValidMove(0))
+            {
+                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+                currentTetramino.setY(currentTetramino.getY() + 1);
+                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            }
+            
+        }
+
+        private bool CheckValidMove(int move)
+        {
+            // 0 = shift down
+            // 1 = shift left
+            // 2 = shift right
+
+            bool valid = false;
+
+            if (move == 0)
+            {
+                valid = currentTetramino.getY() + currentTetramino.getPiece().GetLength(1) < b.getHeight();
+            }
+
+            if (move == 1)
+            {
+                valid = currentTetramino.getX() > 0;
+            }
+
+            if (move == 2)
+            {
+                valid = currentTetramino.getX() + currentTetramino.getPiece().GetLength(1) < b.getWidth();
+            }
+
+            return valid;
         }
 
     }

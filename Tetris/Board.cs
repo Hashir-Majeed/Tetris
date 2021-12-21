@@ -81,5 +81,15 @@ namespace Tetris
             }
         }
 
+        public int getHeight()
+        {
+            return HEIGHT;
+        }
+
+        public int getWidth()
+        {
+            return WIDTH;
+        }
+
     }
 }
