@@ -10,8 +10,8 @@ namespace Tetris
     class Board
     {
         //private ObservableCollection<Square> C = new ObservableCollection<Square>();
-        private const int WIDTH = 10;
-        private const int HEIGHT = 20;
+        private const int WIDTH = 12;
+        private const int HEIGHT = 21;
         private Square[,] board;
         private Square[] UIBoard;
         public Board()
@@ -32,7 +32,12 @@ namespace Tetris
                     UIBoard[WIDTH * j + i] = board[i, j];
                 }
             }
-            board[0, 0].setType(1);
+
+            for (int i = 0; i < HEIGHT; i++)
+            {
+                board[0,i].setType(-1);
+                board[WIDTH - 1, i].setType(-1);
+            }
         }
 
         /*public ObservableCollection<Square> pos

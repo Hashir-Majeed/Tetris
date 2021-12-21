@@ -89,9 +89,10 @@ namespace Tetris
         private void Update()
         {
             Square[] tempBoard = game.GetBoard().GetUIBoard();
-            SolidColorBrush[] bindingVals = new SolidColorBrush[200];
+            SolidColorBrush[] bindingVals = new SolidColorBrush[252];
             
             Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
+            ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
             ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
             ColourMatch.Add(1, new SolidColorBrush(Colors.LightBlue));
             ColourMatch.Add(2, new SolidColorBrush(Colors.DarkBlue));
@@ -101,7 +102,7 @@ namespace Tetris
             ColourMatch.Add(6, new SolidColorBrush(Colors.Purple));
             ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
 
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < bindingVals.Length; i++)
             {
                 bindingVals[i] = ColourMatch[tempBoard[i].getType()];
             }
