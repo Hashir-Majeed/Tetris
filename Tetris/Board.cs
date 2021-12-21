@@ -65,8 +65,21 @@ namespace Tetris
                     board[i, j].setType(t.getPiece()[i - startX, j - startY]);
                 }
             }
+
+            t.setX(startX);
+            t.setY(startY);
         }
 
+        public void DeleteTetramino(Tetramino t, int startX, int startY)
+        {
+            for (int i = startX; i < startX + t.getPiece().GetLength(1); i++)
+            {
+                for (int j = startY; j < startY + t.getPiece().GetLength(1); j++)
+                {
+                    board[i, j].setType(0);
+                }
+            }
+        }
 
     }
 }

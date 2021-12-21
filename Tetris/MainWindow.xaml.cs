@@ -32,11 +32,13 @@ namespace Tetris
                 bindingVals[i] = new SolidColorBrush(Colors.Blue);
             }*/
             //DataContext = bindingVals;
+
             game = new TetrisGame();
+            
             InverseLTetramino t1 = new InverseLTetramino();
             game.GetBoard().PlaceTetramino(t1, 7, 6);
 
-            L_Tetramino t2 = new L_Tetramino();
+            /*L_Tetramino t2 = new L_Tetramino();
             game.GetBoard().PlaceTetramino(t2, 5, 15);
 
             Z_Tetramino t3 = new Z_Tetramino();
@@ -53,13 +55,41 @@ namespace Tetris
 
             T_Tetramino t7 = new T_Tetramino();
             game.GetBoard().PlaceTetramino(t7, 7, 17);
-
+            */
 
 
             Update();
             //DataContext = testtext;
 
         }
+
+        private void Key_Pressed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+
+                game.RotatePiece();
+
+                       
+            }
+            if (e.Key == Key.Right)
+            {
+
+                game.ShiftRight();
+
+                
+            }
+            if (e.Key == Key.Left)
+            {
+                game.ShiftLeft();
+            }
+            if (e.Key == Key.Down)
+            {
+                game.ShiftDown();
+            }
+            Update();
+        }
+
 
         private void Update()
         {

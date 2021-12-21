@@ -9,9 +9,13 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
+        private Tetramino currentTetramino;
         public TetrisGame()
         {
             b = new Board();
+            currentTetramino = new InverseLTetramino();
+            currentTetramino.setX(7);
+            currentTetramino.setY(6);
         }
 
         public Board GetBoard()
@@ -19,9 +23,32 @@ namespace Tetris
             return b;
         }
 
-        public void Update()
+        public void RotatePiece()
         {
-            //b.Update(new Square(5));
+            currentTetramino.Rotate();
+            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+        }
+
+        public void ShiftRight()
+        {
+            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            currentTetramino.setX(currentTetramino.getX() + 1);
+            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+        }
+
+        public void ShiftLeft()
+        {
+            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            currentTetramino.setX(currentTetramino.getX() - 1);
+            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+        }
+
+        public void ShiftDown()
+        {
+            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+            currentTetramino.setY(currentTetramino.getY() + 1);
+            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
         }
 
     }
