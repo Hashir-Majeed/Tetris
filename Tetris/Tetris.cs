@@ -9,13 +9,14 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
-        private Tetramino currentTetramino;
+
+        private Tetramino tester;
         public TetrisGame()
         {
             b = new Board();
-            currentTetramino = new InverseLTetramino();
-            currentTetramino.setX(7);
-            currentTetramino.setY(6);
+            
+            tester = new StraightTetramino();
+            PlacePiece();
         }
 
         public Board GetBoard()
@@ -23,71 +24,121 @@ namespace Tetris
             return b;
         }
 
+        public bool CheckValidMove(Coordinates[] previousCoordinates)
+        {           
+            bool valid = true;
+            Coordinates[] temp = tester.getPiece();
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if ((b.getBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.getWidth() - 1 || temp[i].getY() == b.getHeight() - 1)
+                {
+                    valid = false;
+                }
+            }
+            
+
+            return valid;
+        }
+
+        private bool CheckExistsInPreviousPiece(Coordinates toCheck, Coordinates[] previous)
+        {
+            bool exists = false;
+
+            for (int i = 0; i < previous.Length; i++)
+            {
+                if (toCheck.getX() == previous[i].getX() && toCheck.getY() == previous[i].getY())
+                {
+                    exists = true;
+                }
+            }
+
+            return exists;
+        }
+
         public void RotatePiece()
         {
-            currentTetramino.Rotate();
-            b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-            b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-        }
+            Coordinates[] toDelete = tester.getPiece();
+            tester.Rotate();
 
-        public void ShiftRight()
-        {
-            if (CheckValidMove(2))
+            if (!CheckValidMove(toDelete))
             {
-                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-                currentTetramino.setX(currentTetramino.getX() + 1);
-                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+                tester.Rotate();
+            }
+            else
+            {
+                b.DeletePiece(toDelete);
             }
 
-            
-        }
-
-        public void ShiftLeft()
-        {
-            if (CheckValidMove(1))
-            {
-                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-                currentTetramino.setX(currentTetramino.getX() - 1);
-                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-            }
+            PlacePiece();
         }
 
         public void ShiftDown()
         {
-            if (CheckValidMove(0))
+            Coordinates[] toDelete = tester.getPiece();
+
+            tester.ShiftDown(1);
+
+            if (!CheckValidMove(toDelete))
             {
-                b.DeleteTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
-                currentTetramino.setY(currentTetramino.getY() + 1);
-                b.PlaceTetramino(currentTetramino, currentTetramino.getX(), currentTetramino.getY());
+                tester.ShiftDown(-1);
             }
-            
+            else
+            {
+                b.DeletePiece(toDelete);
+            }
+
+            PlacePiece();
+
         }
 
-        private bool CheckValidMove(int move)
+        public void ShiftLeft()
         {
-            // 0 = shift down
-            // 1 = shift left
-            // 2 = shift right
 
-            bool valid = false;
+            Coordinates[] toDelete = tester.getPiece();
+            tester.ShiftHorizontal(-1);
 
-            if (move == 0)
+            if (!CheckValidMove(toDelete))
             {
-                valid = currentTetramino.getY() + currentTetramino.getPiece().GetLength(1) < b.getHeight();
+                tester.ShiftHorizontal(1);
+            }
+            else
+            {
+                b.DeletePiece(toDelete);
             }
 
-            if (move == 1)
-            {
-                valid = currentTetramino.getX() > 0;
-            }
 
-            if (move == 2)
-            {
-                valid = currentTetramino.getX() + currentTetramino.getPiece().GetLength(1) < b.getWidth();
-            }
-
-            return valid;
+            PlacePiece();
         }
+
+        public void ShiftRight()
+        {
+            Coordinates[] toDelete = tester.getPiece();
+            tester.ShiftHorizontal(1);
+
+            if (!CheckValidMove(toDelete))
+            {
+                tester.ShiftHorizontal(-1);
+            }
+            else
+            {
+                b.DeletePiece(toDelete);
+            }
+
+
+            PlacePiece();
+        }
+
+        public void PlacePiece()
+        {
+            Coordinates[] temp = tester.getPiece();
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                b.setBoard(temp[i].getX(), temp[i].getY(), 4);
+            }
+        }
+
 
     }
 }

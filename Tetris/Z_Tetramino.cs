@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    class StraightTetramino : Tetramino
+    class Z_Tetramino : Tetramino
     {
 
-        private int colour = 2;
+        private int colour = 7;
 
-        Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(1, 4), new Coordinates(1, 3) };
-        Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(2, 1), new Coordinates(3, 1), new Coordinates(4, 1) };
+        Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(2, 1), new Coordinates(2, 2), new Coordinates(3, 2) };
+        Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(2, 1), new Coordinates(1, 3) };
         protected override Coordinates Deafult => new Coordinates(0, 0);
 
         protected override Coordinates[][] Piece => new Coordinates[][]

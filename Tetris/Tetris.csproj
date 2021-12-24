@@ -56,18 +56,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Board.cs" />
-    <Compile Include="InverseLTetramino.cs" />
-    <Compile Include="InverseZ-Tetramino.cs" />
-    <Compile Include="L-Tetramino.cs" />
+    <Compile Include="Coordinates.cs" />
+    <Compile Include="InverseL_Tetramino.cs" />
+    <Compile Include="InverseZ_Tetramino.cs" />
+    <Compile Include="L_Tetramino.cs" />
     <Compile Include="PieceVisibility.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />
     <Compile Include="StraightTetramino.cs" />
-    <Compile Include="T-Tetramino.cs" />
     <Compile Include="Tetramino.cs" />
+    <Compile Include="T_Tetramino.cs" />
     <Compile Include="Tetris.cs" />
-    <Compile Include="Z-Tetramino.cs" />
+    <Compile Include="Z_Tetramino.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

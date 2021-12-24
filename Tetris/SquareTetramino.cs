@@ -8,19 +8,19 @@ namespace Tetris
 {
     class SquareTetramino : Tetramino
     {
+        private int colour = 1;
 
-        public SquareTetramino() : base(1, 2)
+        Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(2,1) };
+        protected override Coordinates Deafult => new Coordinates(0, 0);
+
+        protected override Coordinates[][] Piece => new Coordinates[][]
         {
+            Rotation1
+        };
 
-        }
-        public override int[,] CreatePiece(int[,] piece)
+        public int getColour()
         {
-            piece[0, 0] = 1;
-            piece[0, 1] = 1;
-            piece[1, 1] = 1;
-            piece[1, 0] = 1;
-
-            return piece;
+            return colour;
         }
     }
 }

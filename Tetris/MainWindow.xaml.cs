@@ -35,8 +35,8 @@ namespace Tetris
 
             game = new TetrisGame();
             
-            InverseLTetramino t1 = new InverseLTetramino();
-            game.GetBoard().PlaceTetramino(t1, 7, 6);
+            //InverseLTetramino t1 = new InverseLTetramino();
+           // game.GetBoard().PlaceTetramino(t1, 7, 6);
 
             /*L_Tetramino t2 = new L_Tetramino();
             game.GetBoard().PlaceTetramino(t2, 5, 15);
@@ -67,19 +67,22 @@ namespace Tetris
         {
             if (e.Key == Key.Space)
             {
-                game.RotatePiece();       
+                //game.RotatePiece();       
+                game.RotatePiece();
             }
             if (e.Key == Key.Right)
             {
+                //game.ShiftRight();
                 game.ShiftRight();
-       
             }
             if (e.Key == Key.Left)
             {
+                //game.ShiftLeft();
                 game.ShiftLeft();
             }
             if (e.Key == Key.Down)
             {
+                //game.ShiftDown();
                 game.ShiftDown();
             }
             Update();
