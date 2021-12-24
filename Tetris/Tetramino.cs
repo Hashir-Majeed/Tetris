@@ -18,6 +18,7 @@ namespace Tetris
         {
             coordinates = new Coordinates(Deafult.getX(), Deafult.getY());
             currentRotation = 0;
+            
         }
 
         public void Rotate()
@@ -52,6 +53,12 @@ namespace Tetris
 
             return currentCoordinates;
         }
+
+        public int getRotationalSymmetry()
+        {
+            return Piece.Length;
+        }
+        public abstract int getColour();
 
     }
 }

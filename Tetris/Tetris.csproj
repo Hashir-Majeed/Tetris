@@ -62,6 +62,7 @@
     <Compile Include="L_Tetramino.cs" />
     <Compile Include="PieceVisibility.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="Queue.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />
     <Compile Include="StraightTetramino.cs" />

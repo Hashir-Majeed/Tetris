@@ -18,7 +18,7 @@ namespace Tetris
             Rotation1
         };
 
-        public int getColour()
+        public override int getColour()
         {
             return colour;
         }

@@ -2,7 +2,11 @@
 {
     class T_Tetramino : Tetramino
     {
-        private int colour = 3;
+        private int colour;
+        public T_Tetramino()
+        {
+            colour = 3;
+        }
 
         Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(1, 3) };
         Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(3,2), new Coordinates(2,3) };
@@ -18,7 +22,7 @@
             Rotation4
         };
 
-        public int getColour()
+        public override int getColour()
         {
             return colour;
         }

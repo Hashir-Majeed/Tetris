@@ -10,12 +10,12 @@ namespace Tetris
     {
         private Board b;
 
-        private Tetramino tester;
+        private Tetramino currentTetramino;
         public TetrisGame()
         {
             b = new Board();
             
-            tester = new StraightTetramino();
+            currentTetramino = new T_Tetramino();
             PlacePiece();
         }
 
@@ -27,14 +27,22 @@ namespace Tetris
         public bool CheckValidMove(Coordinates[] previousCoordinates)
         {           
             bool valid = true;
-            Coordinates[] temp = tester.getPiece();
+            Coordinates[] temp = currentTetramino.getPiece();
 
             for (int i = 0; i < temp.Length; i++)
             {
-                if ((b.getBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.getWidth() - 1 || temp[i].getY() == b.getHeight() - 1)
+                try
+                {
+                    if ((b.getBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.getWidth() - 1 || temp[i].getY() == b.getHeight() - 1)
+                    {
+                        valid = false;
+                    }
+                }
+                catch
                 {
                     valid = false;
                 }
+                
             }
             
 
@@ -58,12 +66,15 @@ namespace Tetris
 
         public void RotatePiece()
         {
-            Coordinates[] toDelete = tester.getPiece();
-            tester.Rotate();
+            Coordinates[] toDelete = currentTetramino.getPiece();
+            currentTetramino.Rotate();
 
             if (!CheckValidMove(toDelete))
             {
-                tester.Rotate();
+                for (int i = 0; i < currentTetramino.getRotationalSymmetry() - 1; i++)
+                {
+                    currentTetramino.Rotate();
+                }
             }
             else
             {
@@ -75,13 +86,13 @@ namespace Tetris
 
         public void ShiftDown()
         {
-            Coordinates[] toDelete = tester.getPiece();
+            Coordinates[] toDelete = currentTetramino.getPiece();
 
-            tester.ShiftDown(1);
+            currentTetramino.ShiftDown(1);
 
             if (!CheckValidMove(toDelete))
             {
-                tester.ShiftDown(-1);
+                currentTetramino.ShiftDown(-1);
             }
             else
             {
@@ -95,12 +106,12 @@ namespace Tetris
         public void ShiftLeft()
         {
 
-            Coordinates[] toDelete = tester.getPiece();
-            tester.ShiftHorizontal(-1);
+            Coordinates[] toDelete = currentTetramino.getPiece();
+            currentTetramino.ShiftHorizontal(-1);
 
             if (!CheckValidMove(toDelete))
             {
-                tester.ShiftHorizontal(1);
+                currentTetramino.ShiftHorizontal(1);
             }
             else
             {
@@ -113,12 +124,12 @@ namespace Tetris
 
         public void ShiftRight()
         {
-            Coordinates[] toDelete = tester.getPiece();
-            tester.ShiftHorizontal(1);
+            Coordinates[] toDelete = currentTetramino.getPiece();
+            currentTetramino.ShiftHorizontal(1);
 
             if (!CheckValidMove(toDelete))
             {
-                tester.ShiftHorizontal(-1);
+                currentTetramino.ShiftHorizontal(-1);
             }
             else
             {
@@ -131,11 +142,11 @@ namespace Tetris
 
         public void PlacePiece()
         {
-            Coordinates[] temp = tester.getPiece();
+            Coordinates[] temp = currentTetramino.getPiece();
 
             for (int i = 0; i < temp.Length; i++)
             {
-                b.setBoard(temp[i].getX(), temp[i].getY(), 4);
+                b.setBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
             }
         }
 
