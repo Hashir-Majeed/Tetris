@@ -9,13 +9,24 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
-
+        private Tetramino[] allPieces;
+        private GenericQueue<Tetramino> PieceQueue;
         private Tetramino currentTetramino;
+        private Random randomIndex;
         public TetrisGame()
         {
+            randomIndex = new Random();
             b = new Board();
-            
-            currentTetramino = new T_Tetramino();
+            PieceQueue = new GenericQueue<Tetramino>(7);
+            allPieces = new Tetramino[7] { new SquareTetramino(), new StraightTetramino(), new T_Tetramino(), new InverseL_Tetramino(), new L_Tetramino(), new InverseZ_Tetramino(), new Z_Tetramino() };
+
+            for (int i = 0; i < allPieces.Length; i++)
+            {
+                PieceQueue.Enqueue(allPieces[i]);
+            }
+
+            currentTetramino = PieceQueue.Dequeue();
+            PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
             PlacePiece();
         }
 
@@ -140,6 +151,21 @@ namespace Tetris
             PlacePiece();
         }
 
+        private bool CheckBottomRow(Coordinates[] piece)
+        {
+            bool landed = false;
+
+            for (int i = 0; i < piece.Length; i++)
+            {
+                if (piece[i].getY() == b.getHeight() - 2)
+                {
+                    landed = true;
+                }
+            }
+
+            return landed;
+        }
+
         public void PlacePiece()
         {
             Coordinates[] temp = currentTetramino.getPiece();
@@ -148,8 +174,19 @@ namespace Tetris
             {
                 b.setBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
             }
+
+            if (CheckBottomRow(temp))
+            {
+                StartNextMove();
+            }
+
         }
 
-
+        private void StartNextMove()
+        {
+            currentTetramino = PieceQueue.Dequeue();
+            PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            PlacePiece();
+        }
     }
 }
