@@ -151,20 +151,33 @@ namespace Tetris
             PlacePiece();
         }
 
-        private bool CheckBottomRow(Coordinates[] piece)
+        private bool CheckEndMove(Coordinates[] piece)
         {
             bool landed = false;
+            int Ypos = 0;
+            int Xpos = 0;
+            Coordinates tempCoordinates;
+
+            //|| (boardCopy[Xpos, Ypos + 1].getType() > 0 && )
 
             for (int i = 0; i < piece.Length; i++)
             {
-                if (piece[i].getY() == b.getHeight() - 2)
+                Ypos = piece[i].getY();
+                Xpos = piece[i].getX();
+                tempCoordinates = new Coordinates(Xpos, Ypos + 1);
+                
+                if (Ypos == b.getHeight() - 2 || (b.getBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
                 {
                     landed = true;
                 }
+
+                
             }
 
             return landed;
         }
+
+        
 
         public void PlacePiece()
         {
@@ -175,7 +188,7 @@ namespace Tetris
                 b.setBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
             }
 
-            if (CheckBottomRow(temp))
+            if (CheckEndMove(temp))
             {
                 StartNextMove();
             }
