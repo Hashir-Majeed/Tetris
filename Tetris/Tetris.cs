@@ -224,6 +224,7 @@ namespace Tetris
 
         private void StartNextMove()
         {
+            b.CheckFullRows();
             currentTetramino = PieceQueue.Dequeue();
             //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
             PieceQueue.Enqueue(AddRandomPiece());

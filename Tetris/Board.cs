@@ -90,6 +90,47 @@ namespace Tetris
             }
         }
 
+        public int CheckFullRows()
+        {
+            bool full = true;
+            int count = 0;
 
+            for (int i = 1; i < HEIGHT - 1; i++)
+            {
+                full = true;
+                for (int j = 1; j < WIDTH - 1; j++)
+                {
+                    if (board[j,i].getType() == 0)
+                    {
+                        full = false;
+                    }
+                    
+                }
+                if (full)
+                {
+                    ClearRow(i);
+                    count++;
+                }
+            }
+
+            return count;
+
+        }
+
+        private void ClearRow(int row)
+        {
+            for (int i = 1; i < WIDTH - 1; i++)
+            {
+                board[i, row].setType(0);
+            }
+
+            for (int i = row; i > 1; i--)
+            {
+                for (int j = 0; j < WIDTH -1;j++)
+                {
+                    board[j, i].setType(board[j, i - 1].getType());
+                }
+            }
+        }
     }
 }
