@@ -9,24 +9,36 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
-        private Tetramino[] allPieces;
+        //private Tetramino[] allPieces;
         private GenericQueue<Tetramino> PieceQueue;
         private Tetramino currentTetramino;
-        private Random randomIndex;
+        private Random randomGenerator = new Random();
+        //   private Random randomIndex;
+        private const int NUM_PIECES = 7;
         public TetrisGame()
         {
-            randomIndex = new Random();
+            //randomGenerator = new Random();
+            //randomIndex = new Random();
             b = new Board();
-            PieceQueue = new GenericQueue<Tetramino>(7);
-            allPieces = new Tetramino[7] { new SquareTetramino(), new StraightTetramino(), new T_Tetramino(), new InverseL_Tetramino(), new L_Tetramino(), new InverseZ_Tetramino(), new Z_Tetramino() };
+            PieceQueue = new GenericQueue<Tetramino>(NUM_PIECES);
+            //allPieces = new Tetramino[7] { new SquareTetramino(), new StraightTetramino(), new T_Tetramino(), new InverseL_Tetramino(), new L_Tetramino(), new InverseZ_Tetramino(), new Z_Tetramino() };
 
-            for (int i = 0; i < allPieces.Length; i++)
+            /*for (int i = 0; i < allPieces.Length; i++)
             {
                 PieceQueue.Enqueue(allPieces[i]);
-            }
+            }*/
+
+            PieceQueue.Enqueue(new SquareTetramino());
+            PieceQueue.Enqueue(new StraightTetramino());
+            PieceQueue.Enqueue(new T_Tetramino());
+            PieceQueue.Enqueue(new InverseL_Tetramino());
+            PieceQueue.Enqueue(new L_Tetramino());
+            PieceQueue.Enqueue(new InverseZ_Tetramino());
+            PieceQueue.Enqueue(new Z_Tetramino());
 
             currentTetramino = PieceQueue.Dequeue();
-            PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            PieceQueue.Enqueue(AddRandomPiece());
             PlacePiece();
         }
 
@@ -93,6 +105,11 @@ namespace Tetris
             }
 
             PlacePiece();
+
+            if (CheckEndMove(currentTetramino.getPiece()))
+            {
+                StartNextMove();
+            }
         }
 
         public void ShiftDown()
@@ -111,6 +128,11 @@ namespace Tetris
             }
 
             PlacePiece();
+
+            if (CheckEndMove(currentTetramino.getPiece()))
+            {
+                StartNextMove();
+            }
 
         }
 
@@ -131,6 +153,11 @@ namespace Tetris
 
 
             PlacePiece();
+
+            if (CheckEndMove(currentTetramino.getPiece()))
+            {
+                StartNextMove();
+            }
         }
 
         public void ShiftRight()
@@ -149,6 +176,12 @@ namespace Tetris
 
 
             PlacePiece();
+
+            if (CheckEndMove(currentTetramino.getPiece()))
+            {
+                StartNextMove();
+            }
+
         }
 
         private bool CheckEndMove(Coordinates[] piece)
@@ -187,19 +220,52 @@ namespace Tetris
             {
                 b.setBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
             }
-
-            if (CheckEndMove(temp))
-            {
-                StartNextMove();
-            }
-
         }
 
         private void StartNextMove()
         {
             currentTetramino = PieceQueue.Dequeue();
-            PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            PieceQueue.Enqueue(AddRandomPiece());
             PlacePiece();
         }
+
+        private Tetramino AddRandomPiece()
+        {
+            Tetramino nextPiece = null;
+            int randomNum = randomGenerator.Next(NUM_PIECES);
+
+            if (randomNum == 0)
+            {
+                nextPiece = new StraightTetramino();
+            }
+            if (randomNum == 1)
+            {
+                nextPiece = new SquareTetramino();
+            }
+            if (randomNum == 2)
+            {
+                nextPiece = new T_Tetramino();
+            }
+            if (randomNum == 3)
+            {
+                nextPiece = new InverseL_Tetramino();
+            }
+            if (randomNum == 4)
+            {
+                nextPiece = new L_Tetramino();
+            }
+            if (randomNum == 5)
+            {
+                nextPiece = new InverseZ_Tetramino();
+            }
+            if (randomNum == 6)
+            {
+                nextPiece = new Z_Tetramino();
+            }
+
+            return nextPiece;
+        }
+
     }
 }
