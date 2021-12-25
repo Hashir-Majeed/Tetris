@@ -9,24 +9,25 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
-        //private Tetramino[] allPieces;
         private GenericQueue<Tetramino> PieceQueue;
         private Tetramino currentTetramino;
         private Random randomGenerator = new Random();
-        //   private Random randomIndex;
         private const int NUM_PIECES = 7;
+        private int score;
+        private int level;
+        private Dictionary<int, int> pointMapping;
         public TetrisGame()
         {
-            //randomGenerator = new Random();
-            //randomIndex = new Random();
+
+            score = 0;
+            level = 1;
+            pointMapping = new Dictionary<int, int>();
+            pointMapping.Add(1, 100);
+            pointMapping.Add(2, 300);
+            pointMapping.Add(3, 500);
+            pointMapping.Add(4, 800);
             b = new Board();
             PieceQueue = new GenericQueue<Tetramino>(NUM_PIECES);
-            //allPieces = new Tetramino[7] { new SquareTetramino(), new StraightTetramino(), new T_Tetramino(), new InverseL_Tetramino(), new L_Tetramino(), new InverseZ_Tetramino(), new Z_Tetramino() };
-
-            /*for (int i = 0; i < allPieces.Length; i++)
-            {
-                PieceQueue.Enqueue(allPieces[i]);
-            }*/
 
             PieceQueue.Enqueue(new SquareTetramino());
             PieceQueue.Enqueue(new StraightTetramino());
@@ -36,8 +37,7 @@ namespace Tetris
             PieceQueue.Enqueue(new InverseZ_Tetramino());
             PieceQueue.Enqueue(new Z_Tetramino());
 
-            currentTetramino = PieceQueue.Dequeue();
-            //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
+            currentTetramino = PieceQueue.Dequeue();       
             PieceQueue.Enqueue(AddRandomPiece());
             PlacePiece();
         }
@@ -224,7 +224,13 @@ namespace Tetris
 
         private void StartNextMove()
         {
-            b.CheckFullRows();
+            int lines = b.CheckFullRows();
+
+            if(lines != 0)
+            {
+                score += pointMapping[lines] * level;
+            }
+            score += 4;
             currentTetramino = PieceQueue.Dequeue();
             //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
             PieceQueue.Enqueue(AddRandomPiece());
@@ -266,6 +272,11 @@ namespace Tetris
             }
 
             return nextPiece;
+        }
+
+        public int getScore()
+        {
+            return score;
         }
 
     }

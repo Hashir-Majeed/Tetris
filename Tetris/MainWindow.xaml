@@ -326,5 +326,9 @@
         <Rectangle x:Name="S1_Copy250" Grid.Column="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{Binding [0]}" Height="35" Width="36" RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
 
 
+
+        <TextBlock x:Name="Score" Text="Score" FontSize="20" Height="35" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="0,0,10,0" Loaded="StartGame" />
+
+
     </Grid>
 </Window>
