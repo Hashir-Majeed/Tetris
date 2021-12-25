@@ -71,7 +71,7 @@ namespace Tetris
         {
             while (true)
             {
-                int delay = 1000;
+                int delay = 750;
                 await Task.Delay(delay);
                 game.ShiftDown();
                 Update();
