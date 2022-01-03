@@ -9,6 +9,7 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
+        private int lines;
         private GenericQueue<Tetramino> PieceQueue;
         private Tetramino currentTetramino;
         private Random randomGenerator = new Random();
@@ -16,9 +17,10 @@ namespace Tetris
         private int score;
         private int level;
         private Dictionary<int, int> pointMapping;
+        private bool lost;
         public TetrisGame()
         {
-
+            lost = false;
             score = 0;
             level = 1;
             pointMapping = new Dictionary<int, int>();
@@ -105,8 +107,9 @@ namespace Tetris
             }
 
             PlacePiece();
+            lost = b.CheckWin();
 
-            if (CheckEndMove(currentTetramino.getPiece()))
+            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -128,8 +131,9 @@ namespace Tetris
             }
 
             PlacePiece();
+            lost = b.CheckWin();
 
-            if (CheckEndMove(currentTetramino.getPiece()))
+            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -153,8 +157,9 @@ namespace Tetris
 
 
             PlacePiece();
+            lost = b.CheckWin();
 
-            if (CheckEndMove(currentTetramino.getPiece()))
+            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -177,7 +182,9 @@ namespace Tetris
 
             PlacePiece();
 
-            if (CheckEndMove(currentTetramino.getPiece()))
+            lost = b.CheckWin();
+
+            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -224,7 +231,7 @@ namespace Tetris
 
         private void StartNextMove()
         {
-            int lines = b.CheckFullRows();
+            lines = b.CheckFullRows();
 
             if(lines != 0)
             {
@@ -279,5 +286,24 @@ namespace Tetris
             return score;
         }
 
+        public Tetramino GetCurrentTetramino()
+        {
+            return currentTetramino;
+        }
+
+        public int GetLines()
+        {
+            return lines;
+        }
+
+        public Tetramino GetNextPiece()
+        {
+            return PieceQueue.GetFrontPiece();
+        }
+
+        public bool IsLost()
+        {
+            return lost;
+        }
     }
 }

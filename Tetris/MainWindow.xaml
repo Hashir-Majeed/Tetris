@@ -330,6 +330,23 @@
 
 
         <TextBlock x:Name="Score" Text="Score" FontSize="20" Height="34" VerticalAlignment="Top" Grid.ColumnSpan="4" Loaded="StartGame" />
+        <TextBlock x:Name="Next_Piece" Text="Next Piece" FontSize="20" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="NextPiece0" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece1" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece2" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece3" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece4" HorizontalAlignment="Stretch" Grid.Row="8" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="2,0,46,0" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="NextPiece5" HorizontalAlignment="Stretch" Grid.Row="8" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece6" HorizontalAlignment="Stretch" Grid.Row="8" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece7" HorizontalAlignment="Stretch" Grid.Row="8" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece8" HorizontalAlignment="Stretch" Grid.Row="9" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece9" HorizontalAlignment="Stretch" Grid.Row="9" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece10" HorizontalAlignment="Stretch" Grid.Row="9" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece11" HorizontalAlignment="Stretch" Grid.Row="9" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece12" HorizontalAlignment="Stretch" Grid.Row="10" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece13" HorizontalAlignment="Stretch" Grid.Row="10" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Margin="0,0,1,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece14" HorizontalAlignment="Stretch" Grid.Row="10" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece15" HorizontalAlignment="Stretch" Grid.Row="10" VerticalAlignment="Stretch" Height="34" Width="46" RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
 
 
     </Grid>

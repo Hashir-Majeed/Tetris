@@ -53,6 +53,10 @@ namespace Tetris
             return val;
         }
 
+        public T GetFrontPiece()
+        {
+            return Queue[front];
+        }
 
     }
 }

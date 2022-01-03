@@ -132,5 +132,94 @@ namespace Tetris
                 }
             }
         }
+
+        public bool CheckWin()
+        {
+            bool lost = false;
+            int counter = 1;
+
+            while (!lost && counter < WIDTH - 1)
+            {
+                if (board[counter, 1].getType() != 0)
+                {
+                    lost = true;
+                }
+                counter++;
+            }
+
+            return lost;
+        }
+
+        public int CountHoles()
+        {
+            int numHoles = 0;
+            bool valid = false;
+
+            for (int i = 1; i < WIDTH - 1; i++)
+            {
+                valid = false;
+                for (int j = 0; j < HEIGHT - 1; j++)
+                {
+                    if (board[i, j].getType() != 0)
+                    {
+                        valid = true;
+                    }else if (board[i,j].getType() == 0 && valid)
+                    {
+                        numHoles = numHoles + 1;
+                    }
+                }
+            }
+
+            return numHoles;
+        }
+
+        private int GetColumnHeight(int col)
+        {
+            //int totalHeight = 0;
+            int height = 0;
+            bool found = false;
+            int j = 0;
+
+            while (!found && j < HEIGHT - 1)
+            {
+                if (board[col, j].getType() > 0)
+                {
+                    found = true;
+                    height = HEIGHT - 1 - j;
+                    //totalHeight += HEIGHT - 1 - j;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+
+            return height;
+
+        }
+
+        public int TotalHeight()
+        {
+            int totalHeight = 0;
+
+            for (int i = 1; i < WIDTH - 1; i++)
+            {
+                totalHeight += GetColumnHeight(i);
+            }
+
+            return totalHeight;
+        }
+
+
+        public int Bumpiness()
+        {
+            int totalBumpiness = 0;
+
+            for (int i = 1; i < WIDTH - 2; i++)
+            {
+                totalBumpiness += Math.Abs(GetColumnHeight(i) - GetColumnHeight(i + 1));
+            }
+            return totalBumpiness;
+        }
     }
 }

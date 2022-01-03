@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AI.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Coordinates.cs" />
     <Compile Include="InverseL_Tetramino.cs" />
