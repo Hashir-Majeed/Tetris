@@ -330,6 +330,7 @@
 
 
         <TextBlock x:Name="Score" Text="Score" FontSize="20" VerticalAlignment="Top" Grid.ColumnSpan="4" Loaded="StartGame" />
+        <TextBlock x:Name="Level" Text="Level" FontSize="20" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1"/>
         <TextBlock x:Name="Next_Piece" Text="Next Piece" FontSize="20" Grid.Row="6" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="Hold_Piece" Text="Hold Piece" FontSize="20" Grid.Row="6" Grid.Column="18" Grid.ColumnSpan="2"/>
         <Rectangle x:Name="NextPiece0"  Grid.Row="7"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>

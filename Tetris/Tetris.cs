@@ -326,9 +326,12 @@ namespace Tetris
             return nextPiece;
         }
 
-        
+        public int GetLevel()
+        {
+            return level;
+        }
 
-        public int getScore()
+        public int GetScore()
         {
             return score;
         }
@@ -355,7 +358,7 @@ namespace Tetris
 
         public int GetDelay()
         {
-            return Math.Abs(750 - 100 * level); 
+            return Math.Abs(2250 - 100 * level); 
         }
 
         public bool CanUserHold()

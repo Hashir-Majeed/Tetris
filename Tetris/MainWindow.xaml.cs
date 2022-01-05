@@ -95,7 +95,7 @@ namespace Tetris
         }
         private async Task PlayGame()
         {
-            int delay = 750;
+            int delay = 2250;
             while (!game.IsLost())
             {
                 
@@ -123,7 +123,8 @@ namespace Tetris
                 bindingVals[i] = ColourMatch[tempBoard[i].getType()];
             }
 
-            Score.Text = "Score: " + game.getScore();
+            Score.Text = "Score: " + game.GetScore();
+            Level.Text = "Level: " + game.GetLevel();
             DataContext = bindingVals;
         }
 
