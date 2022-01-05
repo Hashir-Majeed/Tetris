@@ -37,6 +37,12 @@ namespace Tetris
             coordinates.setX(coordinates.getX() + columns);
         }
 
+        public void ResetCoordinates()
+        {
+            coordinates.setX(Deafult.getX());
+            coordinates.setY(Deafult.getY());
+        }
+
         public Coordinates getCoordinates()
         {
             return coordinates;

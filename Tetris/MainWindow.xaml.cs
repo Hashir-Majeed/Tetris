@@ -23,11 +23,13 @@ namespace Tetris
         private TetrisGame game;
         Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
         Rectangle[] NextPieceUI;
+        Rectangle[] HoldPieceUI;
         public MainWindow()
         {
             
             InitializeComponent();
             NextPieceUI = new Rectangle[] {NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
+            HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
             ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
             ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
             ColourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
@@ -76,6 +78,15 @@ namespace Tetris
             {
                 game.DropPiece();
             }
+            if (e.Key == Key.D)
+            {
+                if (game.CanUserHold())
+                {
+                    game.HoldPiece();
+                    UpdateNextPiece(game.GetHoldPiece(), HoldPieceUI);
+                }
+                
+            }
             Update();
         }
         private async void StartGame(object sender, RoutedEventArgs e)
@@ -102,7 +113,9 @@ namespace Tetris
             Square[] tempBoard = game.GetBoard().GetUIBoard();
             SolidColorBrush[] bindingVals = new SolidColorBrush[252];
             Tetramino nextPiece = game.GetNextPiece();
-            UpdateNextPiece(nextPiece);
+
+
+            UpdateNextPiece(nextPiece, NextPieceUI);
             
 
             for (int i = 0; i < bindingVals.Length; i++)
@@ -114,7 +127,7 @@ namespace Tetris
             DataContext = bindingVals;
         }
 
-        private void UpdateNextPiece(Tetramino nextPiece)
+        private void UpdateNextPiece(Tetramino nextPiece, Rectangle[] UI)
         {
             Coordinates[] pieceCoords = nextPiece.getPiece();
             int[] newIndexes = new int[pieceCoords.Length];
@@ -124,15 +137,15 @@ namespace Tetris
             }
             int colour = nextPiece.getColour();
             
-            for (int i = 0; i < NextPieceUI.Length; i++)
+            for (int i = 0; i < UI.Length; i++)
             {
                 if (newIndexes.Contains(i))
                 {
-                    NextPieceUI[i].Fill = ColourMatch[colour];
+                    UI[i].Fill = ColourMatch[colour];
                 }
                 else
                 {
-                    NextPieceUI[i].Fill = new SolidColorBrush(Colors.Transparent);
+                    UI[i].Fill = new SolidColorBrush(Colors.Transparent);
                 }
                 
             }

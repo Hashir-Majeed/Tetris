@@ -11,10 +11,12 @@ namespace Tetris
         private T[] objects;
         private int top;
         private int depth;
+        private bool isFull;
         public GenericStack(int depth)
         {
             objects = new T[depth];
             top = 0;
+            isFull = false;
             this.depth = depth;
         }
 
@@ -25,7 +27,10 @@ namespace Tetris
                 objects[top] = s;
                 top++;
             }
-
+            if(top == depth)
+            {
+                isFull = true;
+            }
 
         }
 
@@ -35,6 +40,7 @@ namespace Tetris
             if (! (top==0))
             {
                 top--;
+                isFull = false;
                 return objects[top];
             }
             else
@@ -42,6 +48,11 @@ namespace Tetris
                 return default(T);
             }
 
+        }
+
+        public bool Full()
+        {
+            return isFull;
         }
     }
 }

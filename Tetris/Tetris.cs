@@ -12,6 +12,7 @@ namespace Tetris
         private int linesCleared;
         private int TotalLines;
         private GenericQueue<Tetramino> PieceQueue;
+        private GenericStack<Tetramino> HoldStack;
         private Tetramino currentTetramino;
         private Random randomGenerator = new Random();
         private const int NUM_PIECES = 7;
@@ -19,9 +20,11 @@ namespace Tetris
         private int level;
         private Dictionary<int, int> pointMapping;
         private bool lost;
+        private bool canUserHold;
         public TetrisGame()
         {
             lost = false;
+            canUserHold = true;
             TotalLines = 0;
             score = 0;
             level = 1;
@@ -32,7 +35,7 @@ namespace Tetris
             pointMapping.Add(4, 800);
             b = new Board();
             PieceQueue = new GenericQueue<Tetramino>(NUM_PIECES);
-
+            HoldStack = new GenericStack<Tetramino>(1);
             PieceQueue.Enqueue(new SquareTetramino());
             PieceQueue.Enqueue(new StraightTetramino());
             PieceQueue.Enqueue(new T_Tetramino());
@@ -206,6 +209,31 @@ namespace Tetris
 
         }
 
+        public void HoldPiece()
+        {
+            Tetramino tempTetramino;
+            Coordinates[] toDelete = currentTetramino.getPiece();
+
+            if (HoldStack.Full())
+            {
+                tempTetramino = currentTetramino;
+                b.DeletePiece(toDelete);
+                currentTetramino = HoldStack.Pop();
+                currentTetramino.ResetCoordinates();
+                HoldStack.Push(tempTetramino);
+
+                canUserHold = false;
+            }
+            else
+            {
+                HoldStack.Push(currentTetramino);
+                b.DeletePiece(toDelete);
+                StartNextMove();
+            }
+
+            
+        }
+
         private bool CheckEndMove(Coordinates[] piece)
         {
             bool landed = false;
@@ -247,7 +275,7 @@ namespace Tetris
         private void StartNextMove()
         {
             linesCleared = b.CheckFullRows();
-
+            canUserHold = true;
             if(linesCleared != 0)
             {
                 TotalLines += linesCleared;
@@ -327,7 +355,19 @@ namespace Tetris
 
         public int GetDelay()
         {
-            return 750 - 100 * level; 
+            return Math.Abs(750 - 100 * level); 
+        }
+
+        public bool CanUserHold()
+        {
+            return canUserHold;
+        }
+        public Tetramino GetHoldPiece()
+        {
+            Tetramino holding = HoldStack.Pop();
+            holding.ResetCoordinates();
+            HoldStack.Push(holding);
+            return holding;
         }
     }
 }
