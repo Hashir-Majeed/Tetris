@@ -58,11 +58,10 @@
     <Compile Include="AI.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Coordinates.cs" />
+    <Compile Include="GenericStack.cs" />
     <Compile Include="InverseL_Tetramino.cs" />
     <Compile Include="InverseZ_Tetramino.cs" />
     <Compile Include="L_Tetramino.cs" />
-    <Compile Include="PieceVisibility.cs" />
-    <Compile Include="Position.cs" />
     <Compile Include="Queue.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />

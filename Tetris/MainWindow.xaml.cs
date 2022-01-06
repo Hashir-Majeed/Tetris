@@ -31,7 +31,7 @@ namespace Tetris
             ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
             ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
             ColourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
-            ColourMatch.Add(2, new SolidColorBrush(Colors.LightBlue));
+            ColourMatch.Add(2, new SolidColorBrush(Colors.OrangeRed));
             ColourMatch.Add(3, new SolidColorBrush(Colors.Purple));
             ColourMatch.Add(4, new SolidColorBrush(Colors.DarkBlue));
             ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
