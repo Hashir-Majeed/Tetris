@@ -9,7 +9,8 @@ namespace Tetris
     class TetrisGame
     {
         private Board b;
-        private int lines;
+        private int linesCleared;
+        private int TotalLines;
         private GenericQueue<Tetramino> PieceQueue;
         private Tetramino currentTetramino;
         private Random randomGenerator = new Random();
@@ -21,6 +22,7 @@ namespace Tetris
         public TetrisGame()
         {
             lost = false;
+            TotalLines = 0;
             score = 0;
             level = 1;
             pointMapping = new Dictionary<int, int>();
@@ -89,6 +91,16 @@ namespace Tetris
             return exists;
         }
 
+        public void DropPiece()
+        {
+            bool dropped = false;
+
+            while (!dropped)
+            {
+                dropped = ShiftDown();
+            }
+            
+        }
         public void RotatePiece()
         {
             Coordinates[] toDelete = currentTetramino.getPiece();
@@ -115,9 +127,10 @@ namespace Tetris
             }
         }
 
-        public void ShiftDown()
+        public bool ShiftDown()
         {
             Coordinates[] toDelete = currentTetramino.getPiece();
+            bool finished = false;
 
             currentTetramino.ShiftDown(1);
 
@@ -136,8 +149,10 @@ namespace Tetris
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
+                finished = true;
             }
 
+            return finished;
         }
 
         public void ShiftLeft()
@@ -231,11 +246,13 @@ namespace Tetris
 
         private void StartNextMove()
         {
-            lines = b.CheckFullRows();
+            linesCleared = b.CheckFullRows();
 
-            if(lines != 0)
+            if(linesCleared != 0)
             {
-                score += pointMapping[lines] * level;
+                TotalLines += linesCleared;
+                score += pointMapping[linesCleared] * level;
+                level = 1 + (TotalLines/5);
             }
             score += 4;
             currentTetramino = PieceQueue.Dequeue();
@@ -281,6 +298,8 @@ namespace Tetris
             return nextPiece;
         }
 
+        
+
         public int getScore()
         {
             return score;
@@ -293,7 +312,7 @@ namespace Tetris
 
         public int GetLines()
         {
-            return lines;
+            return linesCleared;
         }
 
         public Tetramino GetNextPiece()
@@ -304,6 +323,11 @@ namespace Tetris
         public bool IsLost()
         {
             return lost;
+        }
+
+        public int GetDelay()
+        {
+            return 750 - 100 * level; 
         }
     }
 }

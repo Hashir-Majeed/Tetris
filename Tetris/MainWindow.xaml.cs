@@ -52,7 +52,7 @@ namespace Tetris
 
         private void Key_Pressed(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space)
+            if (e.Key == Key.Up)
             {
                 //game.RotatePiece();       
                 game.RotatePiece();
@@ -72,6 +72,10 @@ namespace Tetris
                 //game.ShiftDown();
                 game.ShiftDown();
             }
+            if (e.Key == Key.Space)
+            {
+                game.DropPiece();
+            }
             Update();
         }
         private async void StartGame(object sender, RoutedEventArgs e)
@@ -80,13 +84,15 @@ namespace Tetris
         }
         private async Task PlayGame()
         {
-
+            int delay = 750;
             while (!game.IsLost())
             {
-                int delay = 750;
+                
                 await Task.Delay(delay);
                 game.ShiftDown();
+                delay = game.GetDelay();
                 Update();
+              
             }
             
         }

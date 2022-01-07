@@ -349,5 +349,23 @@
         <Rectangle x:Name="NextPiece15"  Grid.Row="10"  RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
 
 
+        <Rectangle x:Name="HoldPiece0" Grid.Row="7" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece1" Grid.Row="7" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece2" Grid.Row="7" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece3" Grid.Row="7" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece4" Grid.Row="8" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece5" Grid.Row="8" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece6" Grid.Row="8" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece7" Grid.Row="8" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece8" Grid.Row="9" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece9" Grid.Row="9" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece10" Grid.Row="9" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece11" Grid.Row="9" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece12" Grid.Row="10" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece13" Grid.Row="10" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece14" Grid.Row="10" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece15" Grid.Row="10" Grid.Column="21"/>
+
+
     </Grid>
 </Window>
