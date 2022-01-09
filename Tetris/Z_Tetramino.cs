@@ -9,7 +9,8 @@ namespace Tetris
     class Z_Tetramino : Tetramino
     {
 
-        private int colour = 7;
+        private const int COLOUR = 7;
+        private const int POSSIBLE_POSITIONS = 17;
 
         Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(2, 1), new Coordinates(2, 2), new Coordinates(3, 2) };
         Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(2, 1), new Coordinates(1, 3) };
@@ -23,7 +24,12 @@ namespace Tetris
 
         public override int getColour()
         {
-            return colour;
+            return COLOUR;
+        }
+
+        public override int GetAIMoves()
+        {
+            return POSSIBLE_POSITIONS;
         }
     }
 }

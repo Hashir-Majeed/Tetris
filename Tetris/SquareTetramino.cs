@@ -8,7 +8,8 @@ namespace Tetris
 {
     class SquareTetramino : Tetramino
     {
-        private int colour = 1;
+        private const int COLOUR = 1;
+        private const int POSSIBLE_POSITIONS = 9;
 
         Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(2,1) };
         protected override Coordinates Deafult => new Coordinates(0, 0);
@@ -20,7 +21,12 @@ namespace Tetris
 
         public override int getColour()
         {
-            return colour;
+            return COLOUR;
+        }
+
+        public override int GetAIMoves()
+        {
+            return POSSIBLE_POSITIONS;
         }
     }
 }

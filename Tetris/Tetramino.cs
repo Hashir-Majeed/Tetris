@@ -65,6 +65,6 @@ namespace Tetris
             return Piece.Length;
         }
         public abstract int getColour();
-
+        public abstract int GetAIMoves();
     }
 }

@@ -2,16 +2,17 @@
 {
     class T_Tetramino : Tetramino
     {
-        private int colour;
+        private const int COLOUR = 3;
+        private const int POSSIBLE_POSITIONS = 34;
         public T_Tetramino()
         {
-            colour = 3;
+            
         }
 
         Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(1, 3) };
         Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(3,2), new Coordinates(2,3) };
         Coordinates[] Rotation4 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(3, 2), new Coordinates(2, 1) };
-        Coordinates[] Rotation3 = new Coordinates[] { new Coordinates(3, 3), new Coordinates(2, 2), new Coordinates(3, 1), new Coordinates(3, 2) };
+        Coordinates[] Rotation3 = new Coordinates[] { new Coordinates(2, 2), new Coordinates(1, 2), new Coordinates(2, 1), new Coordinates(2, 3) };
         protected override Coordinates Deafult => new Coordinates(0, 0);
 
         protected override Coordinates[][] Piece => new Coordinates[][]
@@ -24,7 +25,12 @@
 
         public override int getColour()
         {
-            return colour;
+            return COLOUR;
+        }
+
+        public override int GetAIMoves()
+        {
+            return POSSIBLE_POSITIONS;
         }
     }
 }

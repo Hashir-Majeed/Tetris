@@ -94,14 +94,17 @@ namespace Tetris
             return exists;
         }
 
-        public void DropPiece()
+        public int DropPiece()
         {
             bool dropped = false;
-
+            int count = 0;
             while (!dropped)
             {
                 dropped = ShiftDown();
+                count++;
             }
+
+            return count;
             
         }
         public void RotatePiece()
@@ -158,6 +161,24 @@ namespace Tetris
             return finished;
         }
 
+        public void ShiftUp(int rows)
+        {
+            Coordinates[] toDelete = currentTetramino.getPiece();
+
+            currentTetramino.ShiftDown(-1 * rows);
+
+            if (!CheckValidMove(toDelete))
+            {
+                currentTetramino.ShiftDown(rows);
+            }
+            else
+            {
+                b.DeletePiece(toDelete);
+            }
+
+            PlacePiece();
+        }
+
         public void ShiftLeft()
         {
 
@@ -183,14 +204,17 @@ namespace Tetris
             }
         }
 
-        public void ShiftRight()
+        public bool ShiftRight()
         {
+
+            bool valid = true;
             Coordinates[] toDelete = currentTetramino.getPiece();
             currentTetramino.ShiftHorizontal(1);
 
             if (!CheckValidMove(toDelete))
             {
                 currentTetramino.ShiftHorizontal(-1);
+                valid = false;
             }
             else
             {
@@ -206,7 +230,7 @@ namespace Tetris
             {
                 StartNextMove();
             }
-
+            return valid;
         }
 
         public void HoldPiece()
@@ -358,7 +382,7 @@ namespace Tetris
 
         public int GetDelay()
         {
-            return Math.Abs(2250 - 100 * level); 
+            return Math.Abs(950 - 100 * level); 
         }
 
         public bool CanUserHold()
