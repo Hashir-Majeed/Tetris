@@ -27,15 +27,24 @@ namespace Tetris
             double[] scores = new double[numConfigurations];
             int count = 0;
             bool hitEdge = false;
-
-
+            double moveScore;
+            double bestScore = -9999;
+            int bestRotation = -1;
+            int bestPosition = -1;
 
             for (int i = 0; i < currentTetramino.getRotationalSymmetry(); i++)
             {
                 while (count < numConfigurations && !hitEdge)
                 {
                     int rowsDropped = DropPiece();
-                    scores[count] = ComputeMoveScore();
+                    //scores[count] = ComputeMoveScore();
+                    moveScore = ComputeMoveScore();
+                    if (moveScore > bestScore)
+                    {
+                        bestScore = moveScore;
+                        bestRotation = i;
+                        bestPosition = count;
+                    }
                     ShiftUp(rowsDropped);
                     count++;
                     if (!ShiftRight())
@@ -46,11 +55,20 @@ namespace Tetris
 
                 }
                 currentTetramino.ResetCoordinates();
+                count = 0;
                 RotatePiece();
             }
 
-            MaxIndex(scores);
-            
+            //MaxIndex(scores);
+
+            currentTetramino.SetRotation(bestRotation);
+            for (int i = 0; i < bestPosition; i++)
+            {
+                ShiftRight();
+            }
+
+            DropPiece();
+
         }
 
         private double ComputeMoveScore()

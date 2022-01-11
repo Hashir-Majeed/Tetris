@@ -21,6 +21,7 @@ namespace Tetris
     public partial class MainWindow : Window
     {
         private TetrisGame game;
+        private AI BestPlayer;
         Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
         Rectangle[] NextPieceUI;
         Rectangle[] HoldPieceUI;
@@ -46,7 +47,8 @@ namespace Tetris
             }*/
             //DataContext = bindingVals;
 
-            game = new TetrisGame();           
+            game = new TetrisGame();
+            BestPlayer = new AI();
             Update();
             //DataContext = testtext;
 

@@ -64,6 +64,11 @@ namespace Tetris
         {
             return Piece.Length;
         }
+
+        public void SetRotation(int rotation)
+        {
+            currentRotation = rotation;
+        }
         public abstract int getColour();
         public abstract int GetAIMoves();
     }
