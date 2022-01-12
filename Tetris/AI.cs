@@ -22,7 +22,7 @@ namespace Tetris
 
         public void ComputeMove()
         {
-            
+            currentTetramino = GetCurrentTetramino();
             int numConfigurations = currentTetramino.GetAIMoves();
             double[] scores = new double[numConfigurations];
             int count = 0;
@@ -36,7 +36,7 @@ namespace Tetris
             {
                 while (count < numConfigurations && !hitEdge)
                 {
-                    int rowsDropped = DropPiece();
+                    int rowsDropped = AIDrop();
                     //scores[count] = ComputeMoveScore();
                     moveScore = ComputeMoveScore();
                     if (moveScore > bestScore)
@@ -45,7 +45,7 @@ namespace Tetris
                         bestRotation = i;
                         bestPosition = count;
                     }
-                    ShiftUp(rowsDropped);
+                    ShiftUp(rowsDropped - 1);
                     count++;
                     if (!ShiftRight())
                     {
@@ -54,6 +54,7 @@ namespace Tetris
                     
 
                 }
+                board.DeletePiece(currentTetramino.getPiece());
                 currentTetramino.ResetCoordinates();
                 count = 0;
                 RotatePiece();
@@ -76,21 +77,40 @@ namespace Tetris
             return  (linesWeight * GetLines()) - (bumpinessWeight*board.Bumpiness() + holeWeight * board.CountHoles() +heightWeight * board.TotalHeight());
         }
 
-        private int MaxIndex(double[] array)
+        private int AIDrop()
         {
-            double max = -99999;
-            int index = -1;
-
-            for (int i = 0; i < array.Length; i++)
+            bool dropped = false;
+            int count = 0;
+            while (!dropped)
             {
-                if (array[i] > max)
-                {
-                    max = array[i];
-                    index = i;
-                }
+                dropped = AIDown();
+                count++;
             }
 
-            return index;
+            return count;
+        }
+
+        private bool AIDown()
+        {
+            Coordinates[] toDelete = currentTetramino.getPiece();
+            bool finished = false;
+
+            currentTetramino.ShiftDown(1);
+
+            if (!CheckValidMove(toDelete))
+            {
+                currentTetramino.ShiftDown(-1);
+                finished = true;
+            }
+            else
+            {
+                board.DeletePiece(toDelete);
+
+            }
+
+            PlacePiece();
+
+            return finished;
         }
     }
 }

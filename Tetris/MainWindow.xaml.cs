@@ -95,7 +95,7 @@ namespace Tetris
         {
             await PlayGame();
         }
-        private async Task PlayGame()
+        /*private async Task PlayGame()
         {
             int delay = 2250;
             while (!game.IsLost())
@@ -108,13 +108,29 @@ namespace Tetris
               
             }
             
+        }*/
+        private async Task PlayGame()
+        {
+            int delay = 2250;
+            while (!BestPlayer.IsLost())
+            {
+
+                await Task.Delay(delay);
+                //BestPlayer.ShiftDown();
+                BestPlayer.ComputeMove();
+                delay = BestPlayer.GetDelay();
+                Update();
+
+            }
+
         }
+
 
         private void Update()
         {
-            Square[] tempBoard = game.GetBoard().GetUIBoard();
+            Square[] tempBoard = BestPlayer.GetBoard().GetUIBoard();
             SolidColorBrush[] bindingVals = new SolidColorBrush[252];
-            Tetramino nextPiece = game.GetNextPiece();
+            Tetramino nextPiece = BestPlayer.GetNextPiece();
 
 
             UpdateNextPiece(nextPiece, NextPieceUI);
@@ -129,7 +145,27 @@ namespace Tetris
             Level.Text = "Level: " + game.GetLevel();
             DataContext = bindingVals;
         }
+        /*private void Update()
+        {
+            Square[] tempBoard = game.GetBoard().GetUIBoard();
+            SolidColorBrush[] bindingVals = new SolidColorBrush[252];
+            Tetramino nextPiece = game.GetNextPiece();
 
+
+            UpdateNextPiece(nextPiece, NextPieceUI);
+
+
+            for (int i = 0; i < bindingVals.Length; i++)
+            {
+                bindingVals[i] = ColourMatch[tempBoard[i].getType()];
+            }
+
+            Score.Text = "Score: " + game.GetScore();
+            Level.Text = "Level: " + game.GetLevel();
+            DataContext = bindingVals;
+        }
+
+    */
         private void UpdateNextPiece(Tetramino nextPiece, Rectangle[] UI)
         {
             Coordinates[] pieceCoords = nextPiece.getPiece();
