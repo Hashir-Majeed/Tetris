@@ -11,9 +11,9 @@ namespace Tetris
         private Board board;
         private Tetramino currentTetramino;
         private const double holeWeight = -0.35;
-        private const double bumpinessWeight = -0.18;
-        private const double heightWeight = -0.51;
-        private const double linesWeight = 0.76;
+        private const double bumpinessWeight = -0.3;
+        private const double heightWeight = -0.55;
+        private const double linesWeight = 0.75;
         public AI() : base()
         {
             board = GetBoard();

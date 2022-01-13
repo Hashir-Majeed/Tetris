@@ -36,7 +36,7 @@ namespace Tetris
             b = new Board();
             PieceQueue = new GenericQueue<Tetramino>(NUM_PIECES);
             HoldStack = new GenericStack<Tetramino>(1);
-            PieceQueue.Enqueue(new StraightTetramino());
+            PieceQueue.Enqueue(new SquareTetramino());
             PieceQueue.Enqueue(new StraightTetramino());
             PieceQueue.Enqueue(new T_Tetramino());
             PieceQueue.Enqueue(new InverseL_Tetramino());
@@ -382,7 +382,14 @@ namespace Tetris
 
         public int GetDelay()
         {
-            return Math.Abs(950 - 100 * level); 
+            int delay = 1000 - 400*level;
+
+            if (delay < 0)
+            {
+                delay = 200;
+            }
+
+            return delay;
         }
 
         public bool CanUserHold()

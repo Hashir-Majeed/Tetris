@@ -141,8 +141,8 @@ namespace Tetris
                 bindingVals[i] = ColourMatch[tempBoard[i].getType()];
             }
 
-            Score.Text = "Score: " + game.GetScore();
-            Level.Text = "Level: " + game.GetLevel();
+            Score.Text = "Score: " + BestPlayer.GetScore();
+            Level.Text = "Level: " + BestPlayer.GetLevel();
             DataContext = bindingVals;
         }
         /*private void Update()
