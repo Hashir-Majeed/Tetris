@@ -10,10 +10,10 @@ namespace Tetris
     {
         private Board board;
         private Tetramino currentTetramino;
-        private const double holeWeight = 1;
-        private const double bumpinessWeight = 1;
-        private const double heightWeight = 1;
-        private const double linesWeight = 1;
+        private const double holeWeight = -0.35;
+        private const double bumpinessWeight = -0.18;
+        private const double heightWeight = -0.51;
+        private const double linesWeight = 0.76;
         public AI() : base()
         {
             board = GetBoard();
@@ -56,13 +56,16 @@ namespace Tetris
                 }
                 board.DeletePiece(currentTetramino.getPiece());
                 currentTetramino.ResetCoordinates();
+                PlacePiece();
                 count = 0;
+                hitEdge = false;
                 RotatePiece();
             }
 
             //MaxIndex(scores);
-
+            board.DeletePiece(currentTetramino.getPiece());
             currentTetramino.SetRotation(bestRotation);
+            PlacePiece();
             for (int i = 0; i < bestPosition; i++)
             {
                 ShiftRight();
@@ -74,7 +77,7 @@ namespace Tetris
 
         private double ComputeMoveScore()
         {
-            return  (linesWeight * GetLines()) - (bumpinessWeight*board.Bumpiness() + holeWeight * board.CountHoles() +heightWeight * board.TotalHeight());
+            return  (linesWeight * GetLines()) + (bumpinessWeight*board.Bumpiness() + holeWeight * board.CountHoles() +heightWeight * board.TotalHeight());
         }
 
         private int AIDrop()
