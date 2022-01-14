@@ -62,8 +62,11 @@
     <Compile Include="InverseL_Tetramino.cs" />
     <Compile Include="InverseZ_Tetramino.cs" />
     <Compile Include="L_Tetramino.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="AI_Page.xaml.cs">
+      <DependentUpon>AI_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerGame.xaml.cs">
+      <DependentUpon>PlayerGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Queue.cs" />
     <Compile Include="Square.cs" />
@@ -73,7 +76,7 @@
     <Compile Include="T_Tetramino.cs" />
     <Compile Include="Tetris.cs" />
     <Compile Include="Z_Tetramino.cs" />
-    <Page Include="MainPage.xaml">
+    <Page Include="AI_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

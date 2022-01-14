@@ -1,0 +1,370 @@
+﻿<Page x:Class="Tetris.AI_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tetris"
+      mc:Ignorable="d" 
+      Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+      Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+      Background="Black"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+            <ColumnDefinition Width="0.045*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+            <RowDefinition Height="0.045*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Name="S1" Grid.Column="6"  Grid.Row="1" Fill="{Binding Path= [1]}"  RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy" Grid.Column="7"  Grid.Row="1" Fill="{Binding Path= [2]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy1" Grid.Column="8"  Grid.Row="1" Fill="{Binding Path= [3]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy2" Grid.Column="9"  Grid.Row="1" Fill="{Binding Path= [4]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy3" Grid.Column="10"  Grid.Row="1" Fill="{Binding Path= [5]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy4" Grid.Column="11"  Grid.Row="1" Fill="{Binding Path= [6]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy5" Grid.Column="12"  Grid.Row="1" Fill="{Binding Path= [7]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy6" Grid.Column="13"  Grid.Row="1" Fill="{Binding Path= [8]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy7" Grid.Column="14"  Grid.Row="1" Fill="{Binding Path= [9]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy8" Grid.Column="15"  Grid.Row="1" Fill="{Binding Path= [10]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy9" Grid.Column="6"  Grid.Row="2" Fill="{Binding Path= [13]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy10" Grid.Column="7"  Grid.Row="2" Fill="{Binding Path= [14]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy11" Grid.Column="8"  Grid.Row="2" Fill="{Binding Path= [15]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy12" Grid.Column="9"  Grid.Row="2" Fill="{Binding Path= [16]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy13" Grid.Column="10"  Grid.Row="2" Fill="{Binding Path= [17]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy14" Grid.Column="11"  Grid.Row="2" Fill="{Binding Path= [18]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy15" Grid.Column="12"  Grid.Row="2" Fill="{Binding Path= [19]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy16" Grid.Column="13"  Grid.Row="2" Fill="{Binding Path= [20]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy17" Grid.Column="14"  Grid.Row="2" Fill="{Binding Path= [21]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy18" Grid.Column="15"  Grid.Row="2" Fill="{Binding Path= [22]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy19" Grid.Column="6"  Grid.Row="3" Fill="{Binding Path= [25]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy20" Grid.Column="7"  Grid.Row="3" Fill="{Binding Path= [26]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy21" Grid.Column="8"  Grid.Row="3" Fill="{Binding Path= [27]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy22" Grid.Column="9"  Grid.Row="3" Fill="{Binding Path= [28]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy23" Grid.Column="10"  Grid.Row="3" Fill="{Binding Path= [29]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy24" Grid.Column="11"  Grid.Row="3" Fill="{Binding Path= [30]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy25" Grid.Column="12"  Grid.Row="3" Fill="{Binding Path= [31]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy26" Grid.Column="13"  Grid.Row="3" Fill="{Binding Path= [32]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy27" Grid.Column="14"  Grid.Row="3" Fill="{Binding Path= [33]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy28" Grid.Column="15"  Grid.Row="3" Fill="{Binding Path= [34]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy29" Grid.Column="6"  Grid.Row="4" Fill="{Binding Path= [37]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy30" Grid.Column="7"  Grid.Row="4" Fill="{Binding Path= [38]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy31" Grid.Column="8"  Grid.Row="4" Fill="{Binding Path= [39]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy32" Grid.Column="9"  Grid.Row="4" Fill="{Binding Path= [40]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy33" Grid.Column="10"  Grid.Row="4" Fill="{Binding Path= [41]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy34" Grid.Column="11"  Grid.Row="4" Fill="{Binding Path= [42]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy35" Grid.Column="12"  Grid.Row="4" Fill="{Binding Path= [43]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy36" Grid.Column="13"  Grid.Row="4" Fill="{Binding Path= [44]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy37" Grid.Column="14"  Grid.Row="4" Fill="{Binding Path= [45]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy38" Grid.Column="15"  Grid.Row="4" Fill="{Binding Path= [46]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy39" Grid.Column="6"  Grid.Row="5" Fill="{Binding Path= [49]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy40" Grid.Column="7"  Grid.Row="5" Fill="{Binding Path= [50]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy41" Grid.Column="8"  Grid.Row="5" Fill="{Binding Path= [51]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy42" Grid.Column="9"  Grid.Row="5" Fill="{Binding Path= [52]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy43" Grid.Column="10"  Grid.Row="5" Fill="{Binding Path= [53]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy44" Grid.Column="11"  Grid.Row="5" Fill="{Binding Path= [54]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy45" Grid.Column="12"  Grid.Row="5" Fill="{Binding Path= [55]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy46" Grid.Column="13"  Grid.Row="5" Fill="{Binding Path= [56]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy47" Grid.Column="14"  Grid.Row="5" Fill="{Binding Path= [57]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy48" Grid.Column="15"  Grid.Row="5" Fill="{Binding Path= [58]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy49" Grid.Column="6"  Grid.Row="6" Fill="{Binding Path= [61]}" RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy50" Grid.Column="7"  Grid.Row="6" Fill="{Binding Path= [62]}" RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy51" Grid.Column="8"  Grid.Row="6" Fill="{Binding Path= [63]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy52" Grid.Column="9"  Grid.Row="6" Fill="{Binding Path= [64]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy53" Grid.Column="10"  Grid.Row="6" Fill="{Binding Path= [65]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy54" Grid.Column="11"  Grid.Row="6" Fill="{Binding Path= [66]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy55" Grid.Column="12"  Grid.Row="6" Fill="{Binding Path= [67]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy56" Grid.Column="13"  Grid.Row="6" Fill="{Binding Path= [68]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy57" Grid.Column="14"  Grid.Row="6" Fill="{Binding Path= [69]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy58" Grid.Column="15"  Grid.Row="6" Fill="{Binding Path= [70]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy59" Grid.Column="6"  Grid.Row="7" Fill="{Binding Path= [73]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy60" Grid.Column="7"  Grid.Row="7" Fill="{Binding Path= [74]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy61" Grid.Column="8"  Grid.Row="7" Fill="{Binding Path= [75]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy62" Grid.Column="9"  Grid.Row="7" Fill="{Binding Path= [76]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy63" Grid.Column="10"  Grid.Row="7" Fill="{Binding Path= [77]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy64" Grid.Column="11"  Grid.Row="7" Fill="{Binding Path= [78]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy65" Grid.Column="12"  Grid.Row="7" Fill="{Binding Path= [79]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy66" Grid.Column="13"  Grid.Row="7" Fill="{Binding Path= [80]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy67" Grid.Column="14"  Grid.Row="7" Fill="{Binding Path= [81]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy68" Grid.Column="15"  Grid.Row="7" Fill="{Binding Path= [82]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy69" Grid.Column="6"  Grid.Row="8" Fill="{Binding Path= [85]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy70" Grid.Column="7"  Grid.Row="8" Fill="{Binding Path= [86]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy71" Grid.Column="8"  Grid.Row="8" Fill="{Binding Path= [87]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy72" Grid.Column="9"  Grid.Row="8" Fill="{Binding Path= [88]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy73" Grid.Column="10"  Grid.Row="8" Fill="{Binding Path= [89]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy74" Grid.Column="11"  Grid.Row="8" Fill="{Binding Path= [90]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy75" Grid.Column="12"  Grid.Row="8" Fill="{Binding Path= [91]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy76" Grid.Column="13"  Grid.Row="8" Fill="{Binding Path= [92]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy77" Grid.Column="14"  Grid.Row="8" Fill="{Binding Path= [93]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy78" Grid.Column="15"  Grid.Row="8" Fill="{Binding Path= [94]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy79" Grid.Column="6"  Grid.Row="9" Fill="{Binding Path= [97]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy80" Grid.Column="7"  Grid.Row="9" Fill="{Binding Path= [98]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy81" Grid.Column="8"  Grid.Row="9" Fill="{Binding Path= [99]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy82" Grid.Column="9"  Grid.Row="9" Fill="{Binding Path= [100]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy83" Grid.Column="10"  Grid.Row="9" Fill="{Binding Path= [101]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy84" Grid.Column="11"  Grid.Row="9" Fill="{Binding Path= [102]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy85" Grid.Column="12"  Grid.Row="9" Fill="{Binding Path= [103]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy86" Grid.Column="13"  Grid.Row="9" Fill="{Binding Path= [104]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy87" Grid.Column="14"  Grid.Row="9" Fill="{Binding Path= [105]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy88" Grid.Column="15"  Grid.Row="9" Fill="{Binding Path= [106]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy89" Grid.Column="6"  Grid.Row="10" Fill="{Binding Path= [109]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy90" Grid.Column="7"  Grid.Row="10" Fill="{Binding Path= [110]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy91" Grid.Column="8"  Grid.Row="10" Fill="{Binding Path= [111]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy92" Grid.Column="9"  Grid.Row="10" Fill="{Binding Path= [112]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy93" Grid.Column="10"  Grid.Row="10" Fill="{Binding Path= [113]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy94" Grid.Column="11"  Grid.Row="10" Fill="{Binding Path= [114]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy95" Grid.Column="12"  Grid.Row="10" Fill="{Binding Path= [115]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy96" Grid.Column="13"  Grid.Row="10" Fill="{Binding Path= [116]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy97" Grid.Column="14"  Grid.Row="10" Fill="{Binding Path= [117]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy98" Grid.Column="15"  Grid.Row="10" Fill="{Binding Path= [118]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy99" Grid.Column="6"  Grid.Row="11" Fill="{Binding Path= [121]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy100" Grid.Column="7"  Grid.Row="11" Fill="{Binding Path= [122]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy101" Grid.Column="8"  Grid.Row="11" Fill="{Binding Path= [123]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy102" Grid.Column="9"  Grid.Row="11" Fill="{Binding Path= [124]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy103" Grid.Column="10"  Grid.Row="11" Fill="{Binding Path= [125]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy104" Grid.Column="11"  Grid.Row="11" Fill="{Binding Path= [126]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy105" Grid.Column="12"  Grid.Row="11" Fill="{Binding Path= [127]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy106" Grid.Column="13"  Grid.Row="11" Fill="{Binding Path= [128]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy107" Grid.Column="14"  Grid.Row="11" Fill="{Binding Path= [129]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy108" Grid.Column="15"  Grid.Row="11" Fill="{Binding Path= [130]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy109" Grid.Column="6"  Grid.Row="12" Fill="{Binding Path= [133]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy110" Grid.Column="7"  Grid.Row="12" Fill="{Binding Path= [134]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy111" Grid.Column="8"  Grid.Row="12" Fill="{Binding Path= [135]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy112" Grid.Column="9"  Grid.Row="12" Fill="{Binding Path= [136]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy113" Grid.Column="10"  Grid.Row="12" Fill="{Binding Path= [137]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy114" Grid.Column="11"  Grid.Row="12" Fill="{Binding Path= [138]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy115" Grid.Column="12"  Grid.Row="12" Fill="{Binding Path= [139]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy116" Grid.Column="13"  Grid.Row="12" Fill="{Binding Path= [140]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy117" Grid.Column="14"  Grid.Row="12" Fill="{Binding Path= [141]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy118" Grid.Column="15"  Grid.Row="12" Fill="{Binding Path= [142]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy119" Grid.Column="6"  Grid.Row="13" Fill="{Binding Path= [145]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy120" Grid.Column="7"  Grid.Row="13" Fill="{Binding Path= [146]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy121" Grid.Column="8"  Grid.Row="13" Fill="{Binding Path= [147]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy122" Grid.Column="9"  Grid.Row="13" Fill="{Binding Path= [148]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy123" Grid.Column="10"  Grid.Row="13" Fill="{Binding Path= [149]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy124" Grid.Column="11"  Grid.Row="13" Fill="{Binding Path= [150]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy125" Grid.Column="12"  Grid.Row="13" Fill="{Binding Path= [151]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy126" Grid.Column="13"  Grid.Row="13" Fill="{Binding Path= [152]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy127" Grid.Column="14"  Grid.Row="13" Fill="{Binding Path= [153]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy128" Grid.Column="15"  Grid.Row="13" Fill="{Binding Path= [154]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy129" Grid.Column="6"  Grid.Row="14" Fill="{Binding Path= [157]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy130" Grid.Column="7"  Grid.Row="14" Fill="{Binding Path= [158]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy131" Grid.Column="8"  Grid.Row="14" Fill="{Binding Path= [159]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy132" Grid.Column="9"  Grid.Row="14" Fill="{Binding Path= [160]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy133" Grid.Column="10"  Grid.Row="14" Fill="{Binding Path= [161]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy134" Grid.Column="11"  Grid.Row="14" Fill="{Binding Path= [162]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy135" Grid.Column="12"  Grid.Row="14" Fill="{Binding Path= [163]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy136" Grid.Column="13"  Grid.Row="14" Fill="{Binding Path= [164]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy137" Grid.Column="14"  Grid.Row="14" Fill="{Binding Path= [165]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy138" Grid.Column="15"  Grid.Row="14" Fill="{Binding Path= [166]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy139" Grid.Column="6"  Grid.Row="15" Fill="{Binding Path= [169]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy140" Grid.Column="7"  Grid.Row="15" Fill="{Binding Path= [170]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy141" Grid.Column="8"  Grid.Row="15" Fill="{Binding Path= [171]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy142" Grid.Column="9"  Grid.Row="15" Fill="{Binding Path= [172]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy143" Grid.Column="10"  Grid.Row="15" Fill="{Binding Path= [173]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy144" Grid.Column="11"  Grid.Row="15" Fill="{Binding Path= [174]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy145" Grid.Column="12"  Grid.Row="15" Fill="{Binding Path= [175]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy146" Grid.Column="13"  Grid.Row="15" Fill="{Binding Path= [176]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy147" Grid.Column="14"  Grid.Row="15" Fill="{Binding Path= [177]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy148" Grid.Column="15"  Grid.Row="15" Fill="{Binding Path= [178]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy149" Grid.Column="6"  Grid.Row="16" Fill="{Binding Path= [181]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy150" Grid.Column="7"  Grid.Row="16" Fill="{Binding Path= [182]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy151" Grid.Column="8"  Grid.Row="16" Fill="{Binding Path= [183]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy152" Grid.Column="9"  Grid.Row="16" Fill="{Binding Path= [184]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy153" Grid.Column="10"  Grid.Row="16" Fill="{Binding Path= [185]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy154" Grid.Column="11"  Grid.Row="16" Fill="{Binding Path= [186]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy155" Grid.Column="12"  Grid.Row="16" Fill="{Binding Path= [187]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy156" Grid.Column="13"  Grid.Row="16" Fill="{Binding Path= [188]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy157" Grid.Column="14"  Grid.Row="16" Fill="{Binding Path= [189]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy158" Grid.Column="15"  Grid.Row="16" Fill="{Binding Path= [190]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy159" Grid.Column="6"  Grid.Row="17" Fill="{Binding Path= [193]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy160" Grid.Column="7"  Grid.Row="17" Fill="{Binding Path= [194]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy161" Grid.Column="8"  Grid.Row="17" Fill="{Binding Path= [195]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy162" Grid.Column="9"  Grid.Row="17" Fill="{Binding Path= [196]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy163" Grid.Column="10"  Grid.Row="17" Fill="{Binding Path= [197]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy164" Grid.Column="11"  Grid.Row="17" Fill="{Binding Path= [198]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy165" Grid.Column="12"  Grid.Row="17" Fill="{Binding Path= [199]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy166" Grid.Column="13"  Grid.Row="17" Fill="{Binding Path= [200]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy167" Grid.Column="14"  Grid.Row="17" Fill="{Binding Path= [201]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy168" Grid.Column="15"  Grid.Row="17" Fill="{Binding Path= [202]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy169" Grid.Column="6"  Grid.Row="18" Fill="{Binding Path= [205]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy170" Grid.Column="7"  Grid.Row="18" Fill="{Binding Path= [206]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy171" Grid.Column="8"  Grid.Row="18" Fill="{Binding Path= [207]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy172" Grid.Column="9"  Grid.Row="18" Fill="{Binding Path= [208]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy173" Grid.Column="10"  Grid.Row="18" Fill="{Binding Path= [209]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy174" Grid.Column="11"  Grid.Row="18" Fill="{Binding Path= [210]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy175" Grid.Column="12"  Grid.Row="18" Fill="{Binding Path= [211]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy176" Grid.Column="13"  Grid.Row="18" Fill="{Binding Path= [212]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy177" Grid.Column="14"  Grid.Row="18" Fill="{Binding Path= [213]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy178" Grid.Column="15"  Grid.Row="18" Fill="{Binding Path= [214]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy179" Grid.Column="6"  Grid.Row="19" Fill="{Binding Path= [217]}"  RenderTransformOrigin="0.607,2.51"/>
+        <Rectangle x:Name="S1_Copy180" Grid.Column="7"  Grid.Row="19" Fill="{Binding Path= [218]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy181" Grid.Column="8"  Grid.Row="19" Fill="{Binding Path= [219]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy182" Grid.Column="9"  Grid.Row="19" Fill="{Binding Path= [220]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy183" Grid.Column="10"  Grid.Row="19" Fill="{Binding Path= [221]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy184" Grid.Column="11"  Grid.Row="19" Fill="{Binding Path= [222]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy185" Grid.Column="12"  Grid.Row="19" Fill="{Binding Path= [223]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy186" Grid.Column="13"  Grid.Row="19" Fill="{Binding Path= [224]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy187" Grid.Column="14"  Grid.Row="19" Fill="{Binding Path= [225]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy188" Grid.Column="15"  Grid.Row="19" Fill="{Binding Path= [226]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy189" Grid.Column="6"  Grid.Row="20" Fill="{Binding Path= [229]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy190" Grid.Column="7"  Grid.Row="20" Fill="{Binding Path= [230]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy191" Grid.Column="8"  Grid.Row="20" Fill="{Binding Path= [231]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy192" Grid.Column="9"  Grid.Row="20" Fill="{Binding Path= [232]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy193" Grid.Column="10"  Grid.Row="20" Fill="{Binding Path= [233]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy194" Grid.Column="11"  Grid.Row="20" Fill="{Binding Path= [234]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy195" Grid.Column="12"  Grid.Row="20" Fill="{Binding Path= [235]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy196" Grid.Column="13"  Grid.Row="20" Fill="{Binding Path= [236]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy197" Grid.Column="14"  Grid.Row="20" Fill="{Binding Path= [237]}"  RenderTransformOrigin="0.607,2.51"  />
+        <Rectangle x:Name="S1_Copy198" Grid.Column="15"  Grid.Row="20" Fill="{Binding Path= [238]}"  RenderTransformOrigin="0.607,2.51"  />
+
+
+
+
+        <Rectangle x:Name="S1_Copy199" Grid.Column="5"  Grid.Row="1" Fill="{Binding [0]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy200" Grid.Column="5"  Grid.Row="2" Fill="{Binding [12]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy201" Grid.Column="5"  Grid.Row="3" Fill="{Binding [24]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy202" Grid.Column="5"  Grid.Row="4" Fill="{Binding [36]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy203" Grid.Column="5"  Grid.Row="5" Fill="{Binding [48]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy204" Grid.Column="5"  Grid.Row="6" Fill="{Binding [60]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy205" Grid.Column="5"  Fill="{Binding [72]}" RenderTransformOrigin="0.607,2.51" Grid.Row="7" />
+        <Rectangle x:Name="S1_Copy206" Grid.Column="5"  Fill="{Binding [84]}" RenderTransformOrigin="0.607,2.51" Grid.Row="8" />
+        <Rectangle x:Name="S1_Copy207" Grid.Column="5"  Fill="{Binding [96]}" RenderTransformOrigin="0.607,2.51" Grid.Row="9" />
+        <Rectangle x:Name="S1_Copy208" Grid.Column="5"  Fill="{Binding [108]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="10" />
+        <Rectangle x:Name="S1_Copy209" Grid.Column="5"  Fill="{Binding [120]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="11" />
+        <Rectangle x:Name="S1_Copy210" Grid.Column="5"  Fill="{Binding [132]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="12" />
+        <Rectangle x:Name="S1_Copy211" Grid.Column="5"  Fill="{Binding [144]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="13" />
+        <Rectangle x:Name="S1_Copy212" Grid.Column="5"  Fill="{Binding [156]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="14" />
+        <Rectangle x:Name="S1_Copy213" Grid.Column="5"  Fill="{Binding [168]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="15" />
+        <Rectangle x:Name="S1_Copy214" Grid.Column="5"  Fill="{Binding [180]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="16" />
+        <Rectangle x:Name="S1_Copy215" Grid.Column="5"  Fill="{Binding [192]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="17" />
+        <Rectangle x:Name="S1_Copy216" Grid.Column="5"  Fill="{Binding [204]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="18" />
+        <Rectangle x:Name="S1_Copy217" Grid.Column="5"  Fill="{Binding [216]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="19" />
+        <Rectangle x:Name="S1_Copy218" Grid.Column="5"  Fill="{Binding [228]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="20" />
+        <Rectangle x:Name="S1_Copy219" Grid.Column="5"  Fill="{Binding [240]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
+        <Rectangle x:Name="S1_Copy220" Grid.Column="16"  Grid.Row="1" Fill="{Binding [11]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy221" Grid.Column="16"  Grid.Row="2" Fill="{Binding [23]}" RenderTransformOrigin="0.564,2.507" />
+        <Rectangle x:Name="S1_Copy222" Grid.Column="16"  Grid.Row="3" Fill="{Binding [35]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy223" Grid.Column="16"  Grid.Row="4" Fill="{Binding [47]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy224" Grid.Column="16"  Grid.Row="5" Fill="{Binding [59]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy225" Grid.Column="16"  Grid.Row="6" Fill="{Binding [71]}" RenderTransformOrigin="0.607,2.51" />
+        <Rectangle x:Name="S1_Copy226" Grid.Column="16"  Fill="{Binding [83]}" RenderTransformOrigin="0.607,2.51" Grid.Row="7" />
+        <Rectangle x:Name="S1_Copy227" Grid.Column="16"  Fill="{Binding [95]}" RenderTransformOrigin="0.607,2.51" Grid.Row="8" />
+        <Rectangle x:Name="S1_Copy228" Grid.Column="16"  Fill="{Binding [107]}" RenderTransformOrigin="0.607,2.51" Grid.Row="9" />
+        <Rectangle x:Name="S1_Copy229" Grid.Column="16"  Fill="{Binding [119]}" RenderTransformOrigin="0.607,2.51" Grid.Row="10" />
+        <Rectangle x:Name="S1_Copy230" Grid.Column="16"  Fill="{Binding [131]}" RenderTransformOrigin="0.607,2.51" Grid.Row="11" />
+        <Rectangle x:Name="S1_Copy231" Grid.Column="16"  Fill="{Binding [143]}" RenderTransformOrigin="0.607,2.51" Grid.Row="12" />
+        <Rectangle x:Name="S1_Copy232" Grid.Column="16"  Fill="{Binding [155]}" RenderTransformOrigin="0.607,2.51" Grid.Row="13" />
+        <Rectangle x:Name="S1_Copy233" Grid.Column="16"  Fill="{Binding [167]}" RenderTransformOrigin="0.607,2.51" Grid.Row="14" />
+        <Rectangle x:Name="S1_Copy234" Grid.Column="16"  Fill="{Binding [179]}" RenderTransformOrigin="0.607,2.51" Grid.Row="15" />
+        <Rectangle x:Name="S1_Copy235" Grid.Column="16"  Fill="{Binding [191]}" RenderTransformOrigin="0.607,2.51" Grid.Row="16" />
+        <Rectangle x:Name="S1_Copy236" Grid.Column="16"  Fill="{Binding [203]}" RenderTransformOrigin="0.607,2.51" Grid.Row="17" />
+        <Rectangle x:Name="S1_Copy237" Grid.Column="16"  Fill="{Binding [215]}" RenderTransformOrigin="0.607,2.51" Grid.Row="18" />
+        <Rectangle x:Name="S1_Copy238" Grid.Column="16"  Fill="{Binding [227]}" RenderTransformOrigin="0.607,2.51" Grid.Row="19" />
+        <Rectangle x:Name="S1_Copy239" Grid.Column="16"  Fill="{Binding [239]}" RenderTransformOrigin="0.607,2.51" Grid.Row="20" />
+        <Rectangle x:Name="S1_Copy240" Grid.Column="16"  Fill="{Binding [251]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
+
+
+
+
+
+
+        <Rectangle x:Name="S1_Copy241" Grid.Column="6"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
+        <Rectangle x:Name="S1_Copy242" Grid.Column="7"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy243" Grid.Column="8"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy244" Grid.Column="9"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy245" Grid.Column="10"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy246" Grid.Column="11"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy247" Grid.Column="12"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
+        <Rectangle x:Name="S1_Copy248" Grid.Column="13"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy249" Grid.Column="14"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" />
+        <Rectangle x:Name="S1_Copy250" Grid.Column="15"  Fill="{Binding [0]}"  RenderTransformOrigin="0.607,2.51" Grid.Row="21" Margin="0,0,0,-1" />
+
+
+
+        <TextBlock x:Name="Score" Text="Score" Foreground="Orange"  FontSize="20" VerticalAlignment="Top" Grid.ColumnSpan="4" Loaded="StartGame" Height="46" />
+        <TextBlock x:Name="Level" Text="Level" Foreground="White" FontSize="20" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock x:Name="Next_Piece" Foreground="White" Text="Next Piece" FontSize="20" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Hold_Piece" Foreground="White" Text="Hold Piece" FontSize="20" Grid.Row="6" Grid.Column="18" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="NextPiece0"  Grid.Row="7"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece1"  Grid.Row="7"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece2"  Grid.Row="7"  RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece3"  Grid.Row="7"  RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece4"  Grid.Row="8"  RenderTransformOrigin="0.607,2.51" Margin="2,0,46,0" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="NextPiece5"  Grid.Row="8"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece6"  Grid.Row="8"  RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece7"  Grid.Row="8"  RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece8"  Grid.Row="9"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece9"  Grid.Row="9"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece10"  Grid.Row="9"  RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece11"  Grid.Row="9"  RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+        <Rectangle x:Name="NextPiece12"  Grid.Row="10"  RenderTransformOrigin="0.607,2.51" Margin="1,0,0,0"/>
+        <Rectangle x:Name="NextPiece13"  Grid.Row="10"  RenderTransformOrigin="0.607,2.51" Margin="0,0,1,0" Grid.Column="1"/>
+        <Rectangle x:Name="NextPiece14"  Grid.Row="10"  RenderTransformOrigin="0.607,2.51" Grid.Column="2"/>
+        <Rectangle x:Name="NextPiece15"  Grid.Row="10"  RenderTransformOrigin="0.607,2.51" Grid.Column="3"/>
+
+
+        <Rectangle x:Name="HoldPiece0" Grid.Row="7" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece1" Grid.Row="7" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece2" Grid.Row="7" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece3" Grid.Row="7" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece4" Grid.Row="8" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece5" Grid.Row="8" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece6" Grid.Row="8" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece7" Grid.Row="8" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece8" Grid.Row="9" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece9" Grid.Row="9" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece10" Grid.Row="9" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece11" Grid.Row="9" Grid.Column="21"/>
+        <Rectangle x:Name="HoldPiece12" Grid.Row="10" Grid.Column="18"/>
+        <Rectangle x:Name="HoldPiece13" Grid.Row="10" Grid.Column="19"/>
+        <Rectangle x:Name="HoldPiece14" Grid.Row="10" Grid.Column="20"/>
+        <Rectangle x:Name="HoldPiece15" Grid.Row="10" Grid.Column="21"/>
+
+
+    </Grid>
+</Page>

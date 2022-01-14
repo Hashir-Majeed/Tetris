@@ -1,4 +1,4 @@
-﻿<Page x:Class="Tetris.MainPage"
+﻿<Page x:Class="Tetris.PlayerGame"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       Height="{x:Static SystemParameters.PrimaryScreenHeight}"
       KeyDown="Key_Pressed"
       Background="Black"
-      Title="MainPage">
+      Title="PlayerGame">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -327,7 +327,7 @@
 
 
 
-        <TextBlock x:Name="Score" Text="Score" Foreground="White"  FontSize="20" VerticalAlignment="Top" Grid.ColumnSpan="4" Loaded="StartGame" Height="46" />
+        <TextBlock x:Name="Score" Text="Score" Foreground="Orange"  FontSize="20" VerticalAlignment="Top" Grid.ColumnSpan="4" Loaded="StartGame" Height="46" />
         <TextBlock x:Name="Level" Text="Level" Foreground="White" FontSize="20" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1"/>
         <TextBlock x:Name="Next_Piece" Foreground="White" Text="Next Piece" FontSize="20" Grid.Row="6" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="Hold_Piece" Foreground="White" Text="Hold Piece" FontSize="20" Grid.Row="6" Grid.Column="18" Grid.ColumnSpan="2"/>

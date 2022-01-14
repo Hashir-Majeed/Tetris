@@ -18,17 +18,18 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class AI_Page : Page
     {
-        private TetrisGame game;
+
         private AI BestPlayer;
         Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
         Rectangle[] NextPieceUI;
         Rectangle[] HoldPieceUI;
-        public MainPage()
+        public AI_Page()
         {
 
             InitializeComponent();
+            
             NextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
             HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
             ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
@@ -47,68 +48,17 @@ namespace Tetris
             }*/
             //DataContext = bindingVals;
 
-            game = new TetrisGame();
             BestPlayer = new AI();
             Update();
             //DataContext = testtext;
 
         }
 
-        private void Key_Pressed(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Up)
-            {
-                //game.RotatePiece();       
-                game.RotatePiece();
-            }
-            if (e.Key == Key.Right)
-            {
-                //game.ShiftRight();
-                game.ShiftRight();
-            }
-            if (e.Key == Key.Left)
-            {
-                //game.ShiftLeft();
-                game.ShiftLeft();
-            }
-            if (e.Key == Key.Down)
-            {
-                //game.ShiftDown();
-                game.ShiftDown();
-            }
-            if (e.Key == Key.Space)
-            {
-                game.DropPiece();
-            }
-            if (e.Key == Key.D)
-            {
-                if (game.CanUserHold())
-                {
-                    game.HoldPiece();
-                    UpdateNextPiece(game.GetHoldPiece(), HoldPieceUI);
-                }
-
-            }
-            Update();
-        }
         private async void StartGame(object sender, RoutedEventArgs e)
         {
             await PlayGame();
         }
-        /*private async Task PlayGame()
-        {
-            int delay = 2250;
-            while (!game.IsLost())
-            {
-                
-                await Task.Delay(delay);
-                game.ShiftDown();
-                delay = game.GetDelay();
-                Update();
-              
-            }
-            
-        }*/
+
         private async Task PlayGame()
         {
             int delay = 2250;
@@ -145,27 +95,8 @@ namespace Tetris
             Level.Text = "Level: " + BestPlayer.GetLevel();
             DataContext = bindingVals;
         }
-        /*private void Update()
-        {
-            Square[] tempBoard = game.GetBoard().GetUIBoard();
-            SolidColorBrush[] bindingVals = new SolidColorBrush[252];
-            Tetramino nextPiece = game.GetNextPiece();
 
 
-            UpdateNextPiece(nextPiece, NextPieceUI);
-
-
-            for (int i = 0; i < bindingVals.Length; i++)
-            {
-                bindingVals[i] = ColourMatch[tempBoard[i].getType()];
-            }
-
-            Score.Text = "Score: " + game.GetScore();
-            Level.Text = "Level: " + game.GetLevel();
-            DataContext = bindingVals;
-        }
-
-    */
         private void UpdateNextPiece(Tetramino nextPiece, Rectangle[] UI)
         {
             Coordinates[] pieceCoords = nextPiece.getPiece();
