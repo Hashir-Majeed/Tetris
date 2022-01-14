@@ -62,6 +62,9 @@
     <Compile Include="InverseL_Tetramino.cs" />
     <Compile Include="InverseZ_Tetramino.cs" />
     <Compile Include="L_Tetramino.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Queue.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />
@@ -70,6 +73,10 @@
     <Compile Include="T_Tetramino.cs" />
     <Compile Include="Tetris.cs" />
     <Compile Include="Z_Tetramino.cs" />
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

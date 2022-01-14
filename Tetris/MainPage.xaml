@@ -1,18 +1,15 @@
-﻿<Window x:Class="Tetris.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tetris"
-        mc:Ignorable="d"
-        Title = "MainWindow"
-        Width="{x:Static SystemParameters.PrimaryScreenWidth}"
-        Height="{x:Static SystemParameters.PrimaryScreenHeight}"
-        KeyDown="Key_Pressed"
-        Background="Black"
-        >
-
-
+﻿<Page x:Class="Tetris.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tetris"
+      mc:Ignorable="d" 
+      Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+      Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+      KeyDown="Key_Pressed"
+      Background="Black"
+      Title="MainPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -371,4 +368,4 @@
 
 
     </Grid>
-</Window>
+</Page>

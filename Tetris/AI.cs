@@ -10,10 +10,10 @@ namespace Tetris
     {
         private Board board;
         private Tetramino currentTetramino;
-        private const double holeWeight = -0.35;
+        private const double holeWeight = -0.5;
         private const double bumpinessWeight = -0.3;
-        private const double heightWeight = -0.55;
-        private const double linesWeight = 0.75;
+        private const double heightWeight = -0.5;
+        private const double linesWeight = 0.7;
         public AI() : base()
         {
             board = GetBoard();
@@ -24,7 +24,7 @@ namespace Tetris
         {
             currentTetramino = GetCurrentTetramino();
             int numConfigurations = currentTetramino.GetAIMoves();
-            double[] scores = new double[numConfigurations];
+            //double[] scores = new double[numConfigurations];
             int count = 0;
             bool hitEdge = false;
             double moveScore;
