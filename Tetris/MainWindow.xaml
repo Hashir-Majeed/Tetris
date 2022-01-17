@@ -7,32 +7,14 @@
         mc:Ignorable="d"
         Title = "MainWindow"
         Width="{x:Static SystemParameters.PrimaryScreenWidth}"
-        Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"      
         
-        Background="Black"
         >
 
-
-
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
-            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
-            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
-
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-
-            <RowDefinition Height="0.33*" ></RowDefinition>
-            <RowDefinition Height="0.33*" ></RowDefinition>
-            <RowDefinition Height="0.33*" ></RowDefinition>
-        </Grid.RowDefinitions>
-
-
-        <Button x:Name="AI_Game" Grid.Column="0" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Demonstration AI" Background="AliceBlue" Click="Play_AI" Margin="10"></Button>
-        <Button x:Name="Player_Game" Grid.Column="1" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Play Tetris" Background="AliceBlue" Click="Play_Game" Margin="10"></Button>
-
+        <Frame x:Name="Contents" NavigationUIVisibility="Hidden">
+            
+        </Frame>
     </Grid>
-    
+
 </Window>

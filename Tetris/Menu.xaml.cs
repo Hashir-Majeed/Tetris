@@ -16,22 +16,27 @@ using System.Windows.Shapes;
 namespace Tetris
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Menu : Page
     {
-        object[] Pages = new object[3];
-        public MainWindow()
+        Frame Contents;
+        object[] Pages;
+        public Menu(Frame pageFrame, object[] allPages)
         {
             InitializeComponent();
-            Pages[0] = new Menu(Contents, Pages);
-            Pages[1] = new AI_Page(Contents, Pages);
-            Pages[2] = new PlayerGame(Contents, Pages);
-
-            Contents.Navigate(Pages[0]);
+            Pages = allPages;
+            Contents = pageFrame;
         }
 
-        
+        private void Play_AI(object sender, RoutedEventArgs e)
+        {
+            Contents.Content = Pages[1];
+        }
 
+        private void Play_Game(object sender, RoutedEventArgs e)
+        {
+            Contents.Content = Pages[2];
+        }
     }
 }

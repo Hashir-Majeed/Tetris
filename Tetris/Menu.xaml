@@ -1,0 +1,33 @@
+﻿<Page x:Class="Tetris.Menu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tetris"
+      mc:Ignorable="d" 
+      Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+      Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+        
+      Background="Black">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.33*" ></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="0.33*" ></RowDefinition>
+            <RowDefinition Height="0.33*" ></RowDefinition>
+            <RowDefinition Height="0.33*" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button x:Name="AI_Game" Grid.Column="0" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Demonstration AI" Background="AliceBlue" Click="Play_AI" Margin="10"></Button>
+        <Button x:Name="Player_Game" Grid.Column="1" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Play Tetris" Background="AliceBlue" Click="Play_Game" Margin="10"></Button>
+
+    </Grid>
+</Page>

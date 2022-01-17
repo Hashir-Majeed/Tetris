@@ -10,7 +10,7 @@ namespace Tetris
     {
         private Board board;
         private Tetramino currentTetramino;
-        private const double holeWeight = -0.5;
+        private const double holeWeight = -0.8;
         private const double bumpinessWeight = -0.3;
         private const double heightWeight = -0.5;
         private const double linesWeight = 0.7;

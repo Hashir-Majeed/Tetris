@@ -20,16 +20,20 @@ namespace Tetris
     /// </summary>
     public partial class AI_Page : Page
     {
+        Frame Contents;
+        object[] Pages;
 
         private AI BestPlayer;
         Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
         Rectangle[] NextPieceUI;
         Rectangle[] HoldPieceUI;
-        public AI_Page()
+        public AI_Page(Frame pageFrame, object[] allPages)
         {
 
             InitializeComponent();
-            
+            Contents = pageFrame;
+            Pages = allPages;
+
             NextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
             HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
             ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
