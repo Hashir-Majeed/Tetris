@@ -75,6 +75,9 @@
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />
     <Compile Include="StraightTetramino.cs" />
+    <Compile Include="TestGame.xaml.cs">
+      <DependentUpon>TestGame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tetramino.cs" />
     <Compile Include="T_Tetramino.cs" />
     <Compile Include="Tetris.cs" />
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

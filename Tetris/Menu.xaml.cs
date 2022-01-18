@@ -36,7 +36,11 @@ namespace Tetris
 
         private void Play_Game(object sender, RoutedEventArgs e)
         {
-            Contents.Content = Pages[2];
+            //Contents.Content = Pages[2];
+            Window w = new TestGame();
+            w.Show();
         }
+
+        
     }
 }
