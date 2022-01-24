@@ -5,22 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
+/*
+ * BOARD CLASS
+ * 
+ * Stores Board Class as a 2D array of Square Objects. 
+ * Contains functions for Board Manipulation such as ClearRows and CheckWin,as well as heuristic functions for the AI
+ * 
+ */
+
 namespace Tetris
 {
     class Board
     {
-        //private ObservableCollection<Square> C = new ObservableCollection<Square>();
         private const int WIDTH = 12;
         private const int HEIGHT = 21;
         private Square[,] board;
         private Square[] UIBoard;
+
+        //UIBoard is the one-dimensional array to enable binding. 
+        //Each Element in UIBoard contains a reference to its respective Board Square
         public Board()
         {
-            /*for (int x = 0; x < 52; x = x + 1)
-            {
-                C.Add(null);
-                
-            }*/
 
             board = new Square[WIDTH, HEIGHT];
             UIBoard = new Square[WIDTH*HEIGHT];
@@ -28,6 +33,7 @@ namespace Tetris
             {
                 for (int j = 0; j < HEIGHT; j++)
                 {
+                    //Initialise Objects, set UIBoard References
                     board[i, j] = new Square(0, 0);
                     UIBoard[WIDTH * j + i] = board[i, j];
                 }
@@ -41,22 +47,6 @@ namespace Tetris
             }
         }
 
-        /*public ObservableCollection<Square> pos
-        {
-            get
-            {
-                return C;
-            }
-
-
-        }
-
-        public void Update(Square x)
-        {
-            C[x.getPos()] = x;
-        }
-
-        */
         public Square[] GetUIBoard()
         {
             return UIBoard;
@@ -84,6 +74,7 @@ namespace Tetris
 
         public void DeletePiece(Coordinates[] coordinates)
         {
+            // Resets Values of a given input Coordinate Array back to 0 [deletes the piece]
             for (int i = 0; i < coordinates.Length; i++)
             {
                 board[coordinates[i].getX(), coordinates[i].getY()].setType(0);
@@ -92,6 +83,7 @@ namespace Tetris
 
         public int CheckFullRows()
         {
+            //Iterate through each row. If full, increment count
             bool full = true;
             int count = 0;
 
@@ -119,11 +111,12 @@ namespace Tetris
 
         private void ClearRow(int row)
         {
+            //Given a row, reset each of its Square Values to 0 [clear the row]
             for (int i = 1; i < WIDTH - 1; i++)
             {
                 board[i, row].setType(0);
             }
-
+            //Shift each row above down by 1
             for (int i = row; i > 1; i--)
             {
                 for (int j = 0; j < WIDTH -1;j++)
@@ -135,6 +128,8 @@ namespace Tetris
 
         public bool CheckWin()
         {
+            //Check top row. If there is an element there, then the game is lost, so return true
+
             bool lost = false;
             int counter = 1;
 
@@ -152,6 +147,9 @@ namespace Tetris
 
         public int CountHoles()
         {
+            //If a piece has an empty value anywhere beneath a coloured picee, then numHoles is incremented
+            //Return int Number of Holes
+
             int numHoles = 0;
             bool valid = false;
 
@@ -175,7 +173,9 @@ namespace Tetris
 
         private int GetColumnHeight(int col)
         {
-            //int totalHeight = 0;
+            //Helper function for Bumpiness and Height functions
+            // Returns height of a given column
+
             int height = 0;
             bool found = false;
             int j = 0;
@@ -186,7 +186,6 @@ namespace Tetris
                 {
                     found = true;
                     height = HEIGHT - 1 - j;
-                    //totalHeight += HEIGHT - 1 - j;
                 }
                 else
                 {
@@ -200,6 +199,8 @@ namespace Tetris
 
         public int TotalHeight()
         {
+            //Gets Sum of Column Heights
+
             int totalHeight = 0;
 
             for (int i = 1; i < WIDTH - 1; i++)
@@ -213,6 +214,8 @@ namespace Tetris
 
         public int Bumpiness()
         {
+            //Gets average aggreagate change in height between columns
+
             int totalBumpiness = 0;
 
             for (int i = 1; i < WIDTH - 2; i++)

@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+ * TETRIS AI 
+ * 
+ * Uses 4 heuristics [holes, bumpiness, height and lines cleared] to evaluate the next best move.
+ * Iterates through every rotation and every possible position. Chooses best move.
+ * 
+ * Inherits Tetris Game Class for common functions such as getScore, CheckWin, DropPiece, etc.
+ * 
+ */
 namespace Tetris
 {
     class AI : TetrisGame
@@ -24,7 +32,6 @@ namespace Tetris
         {
             currentTetramino = GetCurrentTetramino();
             int numConfigurations = currentTetramino.GetAIMoves();
-            //double[] scores = new double[numConfigurations];
             int count = 0;
             bool hitEdge = false;
             double moveScore;

@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * COORDINATES CLASS
+ * 
+ * Contains X and Y coordinates for Pieces
+ * 
+ */
+
+
 namespace Tetris
 {
     class Coordinates
     {
+
         private int XPos;
         private int YPos;
 
