@@ -45,32 +45,7 @@ namespace Tetris
 
                 board[WIDTH - 1, i].setType(-1);
             }
-        }
-
-        public Square[] GetUIBoard()
-        {
-            return UIBoard;
-        }
-
-        public int getHeight()
-        {
-            return HEIGHT;
-        }
-
-        public int getWidth()
-        {
-            return WIDTH;
-        }
-
-        public Square[,] getBoard()
-        {
-            return board;
-        }
-
-        public void setBoard(int x, int y, int val)
-        {
-            board[x, y].setType(val);
-        }
+        }      
 
         public void DeletePiece(Coordinates[] coordinates)
         {
@@ -84,6 +59,7 @@ namespace Tetris
         public int CheckFullRows()
         {
             //Iterate through each row. If full, increment count
+            //Returns int: number of full rows
             bool full = true;
             int count = 0;
 
@@ -129,6 +105,7 @@ namespace Tetris
         public bool CheckWin()
         {
             //Check top row. If there is an element there, then the game is lost, so return true
+            //Returns bool: is game lost?
 
             bool lost = false;
             int counter = 1;
@@ -199,7 +176,7 @@ namespace Tetris
 
         public int TotalHeight()
         {
-            //Gets Sum of Column Heights
+            //Gets Sum of Column Heights [int]
 
             int totalHeight = 0;
 
@@ -214,7 +191,7 @@ namespace Tetris
 
         public int Bumpiness()
         {
-            //Gets average aggreagate change in height between columns
+            //Gets average aggreagate change in height between columns [int]
 
             int totalBumpiness = 0;
 
@@ -223,6 +200,31 @@ namespace Tetris
                 totalBumpiness += Math.Abs(GetColumnHeight(i) - GetColumnHeight(i + 1));
             }
             return totalBumpiness;
+        }
+
+        public Square[] GetUIBoard()
+        {
+            return UIBoard;
+        }
+
+        public int getHeight()
+        {
+            return HEIGHT;
+        }
+
+        public int getWidth()
+        {
+            return WIDTH;
+        }
+
+        public Square[,] getBoard()
+        {
+            return board;
+        }
+
+        public void setBoard(int x, int y, int val)
+        {
+            board[x, y].setType(val);
         }
     }
 }

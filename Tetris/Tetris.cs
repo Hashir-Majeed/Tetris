@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /*
+     * TETRIS GAME
+     * 
+     * Main Game Class
+     * Contains Game Functionality - Moving Pieces, Check Lost, Next Piece Queue etc
+     * 
+     * 
+     * 
+     */
     class TetrisGame
     {
         private Board b;
@@ -23,6 +32,10 @@ namespace Tetris
         private bool canUserHold;
         public TetrisGame()
         {
+            // Initialise Game
+            // Create Initial Piece Queue
+            // Creates Board
+            // Places first piece
             lost = false;
             canUserHold = true;
             TotalLines = 0;
@@ -47,15 +60,13 @@ namespace Tetris
             currentTetramino = PieceQueue.Dequeue();       
             PieceQueue.Enqueue(AddRandomPiece());
             PlacePiece();
-        }
-
-        public Board GetBoard()
-        {
-            return b;
-        }
+        } 
 
         public bool CheckValidMove(Coordinates[] previousCoordinates)
-        {           
+        {
+            // Given the previous piece coordinates, check if the current move was valid
+            // Checks that a) There is no other piece in its current position and b) that it's still in the bounds of the board
+
             bool valid = true;
             Coordinates[] temp = currentTetramino.getPiece();
 
@@ -81,6 +92,8 @@ namespace Tetris
 
         private bool CheckExistsInPreviousPiece(Coordinates toCheck, Coordinates[] previous)
         {
+            // Given previous Coordinates, and current Coordinates, Checks that there is no overlap
+
             bool exists = false;
 
             for (int i = 0; i < previous.Length; i++)
@@ -96,6 +109,9 @@ namespace Tetris
 
         public int DropPiece()
         {
+            // Hard Drops a piece
+            // Iterates shifting down until another piece is hit
+
             bool dropped = false;
             int count = 0;
             while (!dropped)
@@ -109,6 +125,9 @@ namespace Tetris
         }
         public void RotatePiece()
         {
+            // Increments Current Rotation for the Current Tetramino
+            // If not a valid move, then the rotation is undone
+
             Coordinates[] toDelete = currentTetramino.getPiece();
             currentTetramino.Rotate();
 
@@ -127,6 +146,8 @@ namespace Tetris
             PlacePiece();
             lost = b.CheckWin();
 
+            // If move has ended, the piece is placed, and the next move is begun
+
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
@@ -135,6 +156,9 @@ namespace Tetris
 
         public bool ShiftDown()
         {
+            // Shifts Current Tetramino's Coordinates Down 1
+            // If not valid move, then it moves it back up 1 to its original position
+
             Coordinates[] toDelete = currentTetramino.getPiece();
             bool finished = false;
 
@@ -152,6 +176,8 @@ namespace Tetris
             PlacePiece();
             lost = b.CheckWin();
 
+            // If move has ended, the piece is placed, and the next move is begun
+
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
@@ -163,6 +189,9 @@ namespace Tetris
 
         public void ShiftUp(int rows)
         {
+            // Given a number of rows, shifts the current Tetramino up that many times
+            // Used by the AI to undo a move
+
             Coordinates[] toDelete = currentTetramino.getPiece();
 
             currentTetramino.ShiftDown(-1 * rows);
@@ -181,6 +210,8 @@ namespace Tetris
 
         public void ShiftLeft()
         {
+            // Shifts Current Tetramino's Coordinates Left 1
+            // If not valid move, then it moves it back Right 1 to its original position
 
             Coordinates[] toDelete = currentTetramino.getPiece();
             currentTetramino.ShiftHorizontal(-1);
@@ -198,6 +229,8 @@ namespace Tetris
             PlacePiece();
             lost = b.CheckWin();
 
+            // If move has ended, the piece is placed, and the next move is begun
+
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
                 StartNextMove();
@@ -206,6 +239,8 @@ namespace Tetris
 
         public bool ShiftRight()
         {
+            // Shifts Current Tetramino's Coordinates Right 1
+            // If not valid move, then it moves it back Left 1 to its original position
 
             bool valid = true;
             Coordinates[] toDelete = currentTetramino.getPiece();
@@ -223,8 +258,9 @@ namespace Tetris
 
 
             PlacePiece();
-
             lost = b.CheckWin();
+
+            // If move has ended, the piece is placed, and the next move is begun
 
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
             {
@@ -235,11 +271,15 @@ namespace Tetris
 
         public void HoldPiece()
         {
+            // Holds the current piece
+
             Tetramino tempTetramino;
             Coordinates[] toDelete = currentTetramino.getPiece();
 
             if (HoldStack.Full())
             {
+                // If there already exists a Hold Piece
+                // Then swap the pieces
                 tempTetramino = currentTetramino;
                 b.DeletePiece(toDelete);
                 currentTetramino = HoldStack.Pop();
@@ -250,6 +290,7 @@ namespace Tetris
             }
             else
             {
+                //If no piece is currently being held, push the current piece to Hold Piece, and start the next move
                 HoldStack.Push(currentTetramino);
                 b.DeletePiece(toDelete);
                 StartNextMove();
@@ -264,8 +305,6 @@ namespace Tetris
             int Ypos = 0;
             int Xpos = 0;
             Coordinates tempCoordinates;
-
-            //|| (boardCopy[Xpos, Ypos + 1].getType() > 0 && )
 
             for (int i = 0; i < piece.Length; i++)
             {
@@ -308,7 +347,6 @@ namespace Tetris
             }
             score += 4;
             currentTetramino = PieceQueue.Dequeue();
-            //PieceQueue.Enqueue(allPieces[randomIndex.Next(allPieces.Length)]);
             PieceQueue.Enqueue(AddRandomPiece());
             PlacePiece();
         }
@@ -395,6 +433,11 @@ namespace Tetris
         public bool CanUserHold()
         {
             return canUserHold;
+        }
+
+        public Board GetBoard()
+        {
+            return b;
         }
         public Tetramino GetHoldPiece()
         {
