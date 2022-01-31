@@ -12,8 +12,6 @@ namespace Tetris
      * Main Game Class
      * Contains Game Functionality - Moving Pieces, Check Lost, Next Piece Queue etc
      * 
-     * 
-     * 
      */
     class TetrisGame
     {
@@ -301,6 +299,8 @@ namespace Tetris
 
         private bool CheckEndMove(Coordinates[] piece)
         {
+            // Checks if a piece has landed or the piece has hit the top [returns bool true if move has ended]
+
             bool landed = false;
             int Ypos = 0;
             int Xpos = 0;
@@ -317,7 +317,6 @@ namespace Tetris
                     landed = true;
                 }
 
-                
             }
 
             return landed;
@@ -327,6 +326,8 @@ namespace Tetris
 
         public void PlacePiece()
         {
+            // Places a piece on the board
+
             Coordinates[] temp = currentTetramino.getPiece();
 
             for (int i = 0; i < temp.Length; i++)
@@ -353,6 +354,8 @@ namespace Tetris
 
         private Tetramino AddRandomPiece()
         {
+            // Returns a new random tetramino
+
             Tetramino nextPiece = null;
             int randomNum = randomGenerator.Next(NUM_PIECES);
 

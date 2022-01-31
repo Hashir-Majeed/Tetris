@@ -4,10 +4,6 @@
     {
         private const int COLOUR = 3;
         private const int POSSIBLE_POSITIONS = 34;
-        public T_Tetramino()
-        {
-            
-        }
 
         Coordinates[] Rotation1 = new Coordinates[] { new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(1, 3) };
         Coordinates[] Rotation2 = new Coordinates[] { new Coordinates(1, 2), new Coordinates(2, 2), new Coordinates(3,2), new Coordinates(2,3) };

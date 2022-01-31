@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /* 
+     * ABSTRACT CLASS - TETRAMINO
+     * 
+     * Contains common attributes and methods for all Tetramino Pieces e.g Deafult Coordinates, Offset, Rotations etc
+     * Polymorphism used in Coordinates and Deafult data, as well Colour and AI Permutations methods.
+     * 
+     */
     abstract class Tetramino
     {
         protected abstract Coordinates[][] Piece { get; }

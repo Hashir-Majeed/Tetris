@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /*
+     * Custom Stack for any generic data type
+     * 
+     * 
+     */
+
     class GenericStack<T>
     {
         private T[] objects;

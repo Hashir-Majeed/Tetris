@@ -52,7 +52,7 @@ namespace Tetris
 
             return val;
         }
-
+        // tgis is bnot q behviour
         public T GetFrontPiece()
         {
             return Queue[front];
