@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /*
+     * GENERIC QUEUE
+     * 
+     * A Custom Queue for any generic data type
+     * Used to store the queue of randomly generated Next Pieces
+     * 
+     */
     class GenericQueue<T>
     {
         private T[] Queue;
@@ -52,7 +59,6 @@ namespace Tetris
 
             return val;
         }
-        // tgis is bnot q behviour
         public T GetFrontPiece()
         {
             return Queue[front];

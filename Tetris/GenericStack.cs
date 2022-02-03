@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Tetris
 {
     /*
+     * GENERIC STACK
+     * 
      * Custom Stack for any generic data type
-     * 
-     * 
+     * Used to hold the Hold Piece by the user
      */
 
     class GenericStack<T>

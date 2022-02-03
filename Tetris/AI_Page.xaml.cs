@@ -29,7 +29,7 @@ namespace Tetris
         Rectangle[] HoldPieceUI;
         public AI_Page(Frame pageFrame, object[] allPages)
         {
-
+            
             InitializeComponent();
             Contents = pageFrame;
             Pages = allPages;
@@ -45,16 +45,9 @@ namespace Tetris
             ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
             ColourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
             ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
-            /*SolidColorBrush[] bindingVals = new SolidColorBrush[200];
-            for (int i = 0; i < 200; i++)
-            {
-                bindingVals[i] = new SolidColorBrush(Colors.Blue);
-            }*/
-            //DataContext = bindingVals;
 
             BestPlayer = new AI();
             Update();
-            //DataContext = testtext;
 
         }
 
@@ -68,9 +61,7 @@ namespace Tetris
             int delay = 2250;
             while (!BestPlayer.IsLost())
             {
-
                 await Task.Delay(delay);
-                //BestPlayer.ShiftDown();
                 BestPlayer.ComputeMove();
                 delay = BestPlayer.GetDelay();
                 Update();
