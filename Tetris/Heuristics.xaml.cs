@@ -18,11 +18,21 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for Heuristics.xaml
     /// </summary>
-    public partial class Heuristics : Page
+    public partial class Heuristics : Window
     {
+        private double holeWeight;
+        private double bumpinessWeight;
+        private double linesWeight;
+        private double heightWeight;
         public Heuristics()
         {
             InitializeComponent();
+
+        }
+
+        private void ValChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            
         }
     }
 }

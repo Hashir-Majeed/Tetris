@@ -31,7 +31,9 @@ namespace Tetris
 
         private void Play_AI(object sender, RoutedEventArgs e)
         {
-            Contents.Content = Pages[1];
+            //Contents.Content = Pages[3];
+            Window w = new Heuristics();
+            w.Show();
         }
 
         private void Play_Game(object sender, RoutedEventArgs e)

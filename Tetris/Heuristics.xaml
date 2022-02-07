@@ -1,4 +1,4 @@
-﻿<Page x:Class="Tetris.Heuristics"
+﻿<Window x:Class="Tetris.Heuristics"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,20 +10,24 @@
       Background="Black">
 
     <StackPanel Margin="10" VerticalAlignment="Center">
-        <DockPanel VerticalAlignment="Center" Margin="10">
-            <Slider Maximum="255" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="Lines" ValueChanged="ValChanged" />
+        <DockPanel VerticalAlignment="Center" Margin="50">
+            <TextBox Text="{Binding ElementName=Lines, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Lines" ValueChanged="ValChanged" />
         </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="10">
-            <Slider Maximum="255" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="Bumpiness" ValueChanged="ValChanged" />
+        <DockPanel VerticalAlignment="Center" Margin="50">
+            <TextBox Text="{Binding ElementName=Bumpiness, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+            <Slider Minimum="-100" Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Bumpiness" ValueChanged="ValChanged" />
         </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="10">
-            <Slider Maximum="255" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="Holes" ValueChanged="ValChanged" />
+        <DockPanel VerticalAlignment="Center" Margin="50">
+            <TextBox Text="{Binding ElementName=Holes, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Holes" ValueChanged="ValChanged" />
         </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="10">
-            <Slider Maximum="255" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="Height" ValueChanged="ValChanged" />
+        <DockPanel VerticalAlignment="Center" Margin="50">
+            <TextBox Text="{Binding ElementName=Height, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Height" ValueChanged="ValChanged" />
         </DockPanel>
     </StackPanel>
-</Page>
+</Window>
