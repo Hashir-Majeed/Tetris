@@ -20,19 +20,27 @@ namespace Tetris
     /// </summary>
     public partial class Heuristics : Window
     {
-        private double holeWeight;
-        private double bumpinessWeight;
-        private double linesWeight;
-        private double heightWeight;
+        double holeWeight;
+        double bumpinessWeight;
+        double linesWeight;
+        double heightWeight;
         public Heuristics()
         {
             InitializeComponent();
-
+            holeWeight = 0;
+            bumpinessWeight = 0;
+            linesWeight = 0;
+            heightWeight = 0;
         }
 
         private void ValChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            
+            bumpinessWeight = Bumpiness.Value * 0.01;
+            holeWeight = Holes.Value * 0.01;
+            heightWeight = Height.Value * 0.01;
+            linesWeight = Lines.Value * 0.01;
         }
+
+
     }
 }

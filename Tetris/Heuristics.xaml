@@ -8,26 +8,41 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Heuristics"
       Background="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-    <StackPanel Margin="10" VerticalAlignment="Center">
-        <DockPanel VerticalAlignment="Center" Margin="50">
-            <TextBox Text="{Binding ElementName=Lines, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
-            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Lines" ValueChanged="ValChanged" />
-        </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="50">
-            <TextBox Text="{Binding ElementName=Bumpiness, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
-            <Slider Minimum="-100" Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Bumpiness" ValueChanged="ValChanged" />
-        </DockPanel>
+        <StackPanel Margin="10" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.RowSpan="4">
+            <DockPanel VerticalAlignment="Center" Margin="50">
+                <TextBox Text="{Binding ElementName=Lines, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Lines" ValueChanged="ValChanged" />
+            </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="50">
-            <TextBox Text="{Binding ElementName=Holes, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
-            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Holes" ValueChanged="ValChanged" />
-        </DockPanel>
+            <DockPanel VerticalAlignment="Center" Margin="50">
+                <TextBox Text="{Binding ElementName=Bumpiness, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                <Slider Minimum="-100" Maximum="100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Bumpiness" ValueChanged="ValChanged" />
+            </DockPanel>
 
-        <DockPanel VerticalAlignment="Center" Margin="50">
-            <TextBox Text="{Binding ElementName=Height, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
-            <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Height" ValueChanged="ValChanged" />
-        </DockPanel>
-    </StackPanel>
+            <DockPanel VerticalAlignment="Center" Margin="50">
+                <TextBox Text="{Binding ElementName=Holes, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Holes" ValueChanged="ValChanged" />
+            </DockPanel>
+
+            <DockPanel VerticalAlignment="Center" Margin="50">
+                <TextBox Text="{Binding ElementName=Height, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Height" ValueChanged="ValChanged" />
+            </DockPanel>
+        </StackPanel>
+    </Grid>
 </Window>
