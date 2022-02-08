@@ -21,24 +21,20 @@ namespace Tetris
     public partial class Menu : Page
     {
         Frame Contents;
-        object[] Pages;
-        public Menu(Frame pageFrame, object[] allPages)
+        public Menu(Frame pageFrame)
         {
             InitializeComponent();
-            Pages = allPages;
             Contents = pageFrame;
         }
 
         private void Play_AI(object sender, RoutedEventArgs e)
         {
-            //Contents.Content = Pages[3];
             Window w = new Heuristics();
             w.Show();
         }
 
         private void Play_Game(object sender, RoutedEventArgs e)
         {
-            //Contents.Content = Pages[2];
             Window w = new TestGame();
             w.Show();
         }

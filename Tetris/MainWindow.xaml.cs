@@ -20,16 +20,14 @@ namespace Tetris
     /// </summary>
     public partial class MainWindow : Window
     {
-        object[] Pages = new object[3];
+        object Menu = new object();
         public MainWindow()
         {
             InitializeComponent();
-            Pages[0] = new Menu(Contents, Pages);
-            Pages[1] = new AI_Page(Contents, Pages);
-            Pages[2] = new PlayerGame(Contents, Pages);
-            //Pages[3] = new Heuristics(Contents, Pages);
+            Menu = new Menu(Contents);
 
-            Contents.Navigate(Pages[0]);
+
+            Contents.Navigate(Menu);
         }
 
         

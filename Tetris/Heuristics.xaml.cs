@@ -29,8 +29,8 @@ namespace Tetris
             InitializeComponent();
             holeWeight = 0;
             bumpinessWeight = 0;
-            linesWeight = 0;
             heightWeight = 0;
+            linesWeight = 0;
         }
 
         private void ValChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -41,6 +41,10 @@ namespace Tetris
             linesWeight = Lines.Value * 0.01;
         }
 
-
+        private void StartAI(object sender, RoutedEventArgs e)
+        {
+            Window AI = new AI_Page(holeWeight, bumpinessWeight, heightWeight, linesWeight);
+            AI.Show();
+        }
     }
 }
