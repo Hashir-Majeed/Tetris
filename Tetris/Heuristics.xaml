@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <Button Content="Start AI" Grid.Column="2" Grid.Row="4" Background="White" Click="StartAI"></Button>
-
+        
 
         <StackPanel Margin="10" VerticalAlignment="Center" Grid.ColumnSpan="5" Grid.RowSpan="4">
             <DockPanel VerticalAlignment="Center" Margin="30">
@@ -48,5 +48,13 @@
                 <Slider Maximum="100" Minimum="-100" TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="False" Name="Lines" ValueChanged="ValChanged" />
             </DockPanel>
         </StackPanel>
+        <TextBlock x:Name="MoreHoles" Text="More Holes" FontSize="18" Foreground="White" Margin="10,58,149,26" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <TextBlock x:Name="MoreBumpiness" Text="Bumpier" FontSize="18" Foreground="White" Grid.Column="4" Margin="0,58,0,25.75" Grid.RowSpan="2" Grid.Row="1" />
+        <TextBlock x:Name="LessBumpiness" Text="Less Bumpiness" FontSize="18" Foreground="White" Margin="10,58,149,25.75" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" />
+        <TextBlock x:Name="MoreHeight" Text="More Height" FontSize="18" Foreground="White" Grid.Column="4" Margin="0,58,0,25.75" Grid.RowSpan="2" Grid.Row="2" />
+        <TextBlock x:Name="LessHeight" Text="Less Height" FontSize="18" Foreground="White" Margin="10,58,149,25.75" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="2" />
+        <TextBlock x:Name="MoreLines" Text="More Lines Cleared" FontSize="18" Foreground="White" Grid.Column="4" Margin="0,58.25,0,25.75" Grid.RowSpan="2" Grid.Row="3" />
+        <TextBlock x:Name="LessLines" Text="Less Lines Cleared" FontSize="18" Foreground="White" Margin="10,58.25,149,25.75" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="3" />
+        <TextBlock x:Name="LessHoles" Text="Less Holes" FontSize="18" Foreground="White" Grid.Column="4" Margin="0,52,0,32" Grid.RowSpan="2" ></TextBlock>
     </Grid>
 </Window>

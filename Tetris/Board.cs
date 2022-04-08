@@ -119,6 +119,8 @@ namespace Tetris
                 counter++;
             }
 
+
+
             return lost;
         }
 
