@@ -101,7 +101,7 @@ namespace Tetris
             {
                 using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
                 {
-                    writer.WriteLine("Player , " + game.GetScore());
+                    writer.WriteLine("P" + game.GetScore() + ";");
                 }
             }
             catch

@@ -70,7 +70,7 @@ namespace Tetris
             {
                 using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
                 {
-                    writer.WriteLine("AI , " + BestPlayer.GetScore());
+                    writer.WriteLine("A" + BestPlayer.GetScore() + ";");
                 }
             }
             catch
