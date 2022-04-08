@@ -39,6 +39,11 @@ namespace Tetris
             w.Show();
         }
 
+        private void High_Scores_Page(object sender, RoutedEventArgs e)
+        {
+            Window w = new HighScores();
+            w.Show();
+        }
         
     }
 }

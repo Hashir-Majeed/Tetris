@@ -62,6 +62,9 @@
     <Compile Include="Heuristics.xaml.cs">
       <DependentUpon>Heuristics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HighScores.xaml.cs">
+      <DependentUpon>HighScores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InverseL_Tetramino.cs" />
     <Compile Include="InverseZ_Tetramino.cs" />
     <Compile Include="L_Tetramino.cs" />
@@ -87,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Heuristics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

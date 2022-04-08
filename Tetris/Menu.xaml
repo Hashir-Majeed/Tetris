@@ -26,8 +26,9 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="AI_Game" Grid.Column="0" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Demonstration AI" Background="AliceBlue" Click="Play_AI" Margin="10"></Button>
+        <Button x:Name="AI_Game" Grid.Column="0" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="AI Simulation" Background="AliceBlue" Click="Play_AI" Margin="10"></Button>
         <Button x:Name="Player_Game" Grid.Column="1" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Play Tetris" Background="AliceBlue" Click="Play_Game" Margin="10"></Button>
+        <Button x:Name="High_Scores" Grid.Column="2" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="High Scores" Background="AliceBlue" Click="High_Scores_Page" Margin="10"></Button>
 
     </Grid>
 </Page>

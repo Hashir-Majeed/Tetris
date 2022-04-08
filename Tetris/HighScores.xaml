@@ -1,0 +1,32 @@
+﻿<Window x:Class="Tetris.HighScores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tetris"
+        mc:Ignorable="d"
+        Title="HighScores" Height="450" Width="800" Background="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.2*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.2*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.2*" ></ColumnDefinition>
+            <ColumnDefinition Width="0.2*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Title" Text="High Scores" Foreground="Black" Background="Wheat" Grid.Row="0" Grid.Column="2" TextAlignment="Center" FontSize="25" FontWeight="Bold"></TextBlock>
+        
+    </Grid>
+</Window>
