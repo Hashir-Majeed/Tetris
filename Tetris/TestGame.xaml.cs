@@ -39,39 +39,28 @@ namespace Tetris
             ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
             ColourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
             ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
-            /*SolidColorBrush[] bindingVals = new SolidColorBrush[200];
-            for (int i = 0; i < 200; i++)
-            {
-                bindingVals[i] = new SolidColorBrush(Colors.Blue);
-            }*/
-            //DataContext = bindingVals;
 
             game = new TetrisGame();
             Update();
-            //DataContext = testtext;
 
         }
 
         private void Key_Pressed(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Up)
-            {
-                //game.RotatePiece();       
+            {     
                 game.RotatePiece();
             }
             if (e.Key == Key.Right)
             {
-                //game.ShiftRight();
                 game.ShiftRight();
             }
             if (e.Key == Key.Left)
             {
-                //game.ShiftLeft();
                 game.ShiftLeft();
             }
             if (e.Key == Key.Down)
             {
-                //game.ShiftDown();
                 game.ShiftDown();
             }
             if (e.Key == Key.Space)
@@ -106,7 +95,7 @@ namespace Tetris
                 Update();
 
             }
-
+             MessageBox.Show("Game Over!");
         }
 
 

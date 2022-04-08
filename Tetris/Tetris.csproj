@@ -71,9 +71,6 @@
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerGame.xaml.cs">
-      <DependentUpon>PlayerGame.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Queue.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="SquareTetramino.cs" />
@@ -106,10 +103,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PlayerGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
