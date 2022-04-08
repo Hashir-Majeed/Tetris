@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +65,19 @@ namespace Tetris
 
             }
             MessageBox.Show("Game Over!");
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
+                {
+                    writer.WriteLine("AI , " + BestPlayer.GetScore());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error writing to file");
+            }
+
         }
 
 
