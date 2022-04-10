@@ -174,6 +174,11 @@ namespace Tetris
             PlacePiece();
             lost = b.CheckWin();
 
+            if (lost && CheckEndMove(currentTetramino.getPiece())) 
+            {
+                finished = true;
+            }
+
             // If move has ended, the piece is placed, and the next move is begun
 
             if (CheckEndMove(currentTetramino.getPiece()) && !lost)
