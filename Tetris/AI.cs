@@ -35,9 +35,9 @@ namespace Tetris
 
         public void ComputeMove()
         {
-            //Given the current game state, iterates through every possible move
-            //Calls Score Function for each move
-            //Records and makes Best Move
+            // Given the current game state, iterates through every possible move
+            // Calls Score Function for each move
+            // Records and makes Best Move
 
 
             currentTetramino = GetCurrentTetramino();
@@ -49,13 +49,13 @@ namespace Tetris
             int bestRotation = -1;
             int bestPosition = -1;
 
-            //Iterates through each rotation
+            // Iterates through each rotation
             for (int i = 0; i < currentTetramino.getRotationalSymmetry(); i++)
             {
-                //Iterations through each horizontal position
+                // Iterations through each horizontal position
                 while (count < numConfigurations && !hitEdge)
                 {
-                    //Place piece and evaluate score
+                    // Place piece and evaluate score
                     int rowsDropped = AIDrop();
                     moveScore = ComputeMoveScore();
                     if (moveScore > bestScore)
@@ -64,7 +64,7 @@ namespace Tetris
                         bestRotation = i;
                         bestPosition = count;
                     }
-                    //Undo Move
+                    // Undo Move
                     ShiftUp(rowsDropped - 1);
                     count++;
 
@@ -75,7 +75,7 @@ namespace Tetris
                     
 
                 }
-                //Prepare board for next Rotation
+                // Prepare board for next Rotation
                 board.DeletePiece(currentTetramino.getPiece());
                 currentTetramino.ResetCoordinates();
                 PlacePiece();
@@ -83,23 +83,23 @@ namespace Tetris
                 hitEdge = false;
                 RotatePiece();
             }
-            //Reset board
+            // Reset board
             board.DeletePiece(currentTetramino.getPiece());
-            //Get the best recorded move
+            // Get the best recorded move
             currentTetramino.SetRotation(bestRotation);
             PlacePiece();
             for (int i = 0; i < bestPosition; i++)
             {
                 ShiftRight();
             }
-            //Make Best Move
+            // Make Best Move
             DropPiece();
 
         }
 
         private double ComputeMoveScore()
         {
-            //Returns Double: MoveScore
+            // Returns Double: MoveScore
             // Evaluates the 4 heuristics with their respective weights
 
             return  (linesWeight * GetLines()) + (bumpinessWeight*board.Bumpiness() + holeWeight * board.CountHoles() +heightWeight * board.TotalHeight());
@@ -107,7 +107,8 @@ namespace Tetris
 
         private int AIDrop()
         {
-            //Drops a piece, but does NOT start the next move, since for the AI, other moves still need to be considered
+            // Returns int: number of squares dropped
+            // Drops a piece, but does NOT start the next move, since for the AI, other moves still need to be considered
 
             bool dropped = false;
             int count = 0;
@@ -122,7 +123,8 @@ namespace Tetris
 
         private bool AIDown()
         {
-            //Shifts a Piece Down. Does NOT start next move since for the AI, other moves still need to be considered
+            // Returns bool: has hit bottom?
+            // Shifts a Piece Down. Does NOT start next move since for the AI, other moves still need to be considered
 
 
             Coordinates[] toDelete = currentTetramino.getPiece();

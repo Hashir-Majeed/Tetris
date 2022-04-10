@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Tetris.AI" Collapsed="true">
-    <Position X="0.5" Y="5.75" Width="1.5" />
+    <Position X="5.25" Y="2" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAgAAABAAAgAgAAAAAAAAAAAAAgAAQAIAAIAAAAAAA=</HashCode>
       <FileName>AI.cs</FileName>
@@ -10,7 +10,7 @@
   <Class Name="Tetris.AI_Page" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAhAgAAAAAoAAAAIIAAAIAAAABAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAABAgAAAAAoAAAAIIAAAIAAAAAAAAA=</HashCode>
       <FileName>AI_Page.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -37,56 +37,64 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.GenericStack&lt;T&gt;" Collapsed="true">
-    <Position X="18.75" Y="1.5" Width="1.5" />
+    <Position X="18.5" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAQCAAAAAAgAAKAAACAA=</HashCode>
       <FileName>GenericStack.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Tetris.Heuristics" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAgAgAAAAAAAECAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Heuristics.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Tetris.HighScores" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HighScores.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
   <Class Name="Tetris.InverseL_Tetramino">
-    <Position X="5.5" Y="1.75" Width="2" />
+    <Position X="11.75" Y="8" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>InverseL_Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.InverseZ_Tetramino">
-    <Position X="10" Y="1.75" Width="2" />
+    <Position X="14" Y="8" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>InverseZ_Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.L_Tetramino">
-    <Position X="12.25" Y="1.75" Width="2" />
+    <Position X="0.5" Y="8" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>L_Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="20.5" Y="1.5" Width="1.5" />
+    <Position X="15" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Tetris.Menu" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="22.25" Y="1.5" Width="1.5" />
+    <Position X="15.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAEAAgAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Menu.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Tetris.PlayerGame" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="17" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABQAAAAAAAAAAAAhAgAAAAAoAAAAAIAIAIAAAABAAAA=</HashCode>
-      <FileName>PlayerGame.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Orientation="Left" Position="0.1" Collapsed="true" />
   </Class>
   <Class Name="Tetris.GenericQueue&lt;T&gt;" Collapsed="true">
     <Position X="17" Y="1.5" Width="1.5" />
@@ -95,71 +103,71 @@
       <FileName>Queue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Tetris.Square" Collapsed="true">
-    <Position X="22.25" Y="3.25" Width="1.5" />
+  <Class Name="Tetris.Square">
+    <Position X="15" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAIAAARAJAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAARAJAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.SquareTetramino">
-    <Position X="14.5" Y="1.75" Width="2" />
+    <Position X="2.75" Y="8" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>SquareTetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.StraightTetramino">
-    <Position X="0.75" Y="1.75" Width="2.25" />
+    <Position X="5" Y="8" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>StraightTetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.T_Tetramino">
-    <Position X="7.75" Y="1.75" Width="2" />
+    <Position X="9.5" Y="8" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>T_Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.TestGame" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="17" Y="3.5" Width="1.5" />
+    <Position X="19.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABQAAAAAAAAAAAABAgAAAAAoAAAAAIAIAIAAAAAAAAA=</HashCode>
       <FileName>TestGame.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.209" />
+    <Lollipop Position="0.1" Collapsed="true" />
   </Class>
-  <Class Name="Tetris.Tetramino" Collapsed="true">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+  <Class Name="Tetris.Tetramino">
+    <Position X="8.75" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAACIAEAAAgCAAEEBAAAAkAACQAIAAAAAA=</HashCode>
       <FileName>Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.TetrisGame" Collapsed="true">
-    <Position X="0.5" Y="5" Width="1.5" />
+    <Position X="5.25" Y="1.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ADAYEAIBgiABgsAAAAkIKAABAAEUIQQCAQABgAAQAAA=</HashCode>
       <FileName>Tetris.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.Z_Tetramino">
-    <Position X="3.25" Y="1.75" Width="2" />
+    <Position X="7.25" Y="8" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAIAEAAAAAAAAABAAAAEAAAAAIAAAABA=</HashCode>
       <FileName>Z_Tetramino.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.Properties.Resources" Collapsed="true">
-    <Position X="18.75" Y="2.5" Width="1.5" />
+    <Position X="20.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Tetris.Properties.Settings" Collapsed="true">
-    <Position X="20.5" Y="2.5" Width="1.5" />
+    <Position X="22.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>

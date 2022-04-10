@@ -206,17 +206,19 @@ namespace Tetris
             PlacePiece();
         }
 
-        public void ShiftLeft()
+        public bool ShiftLeft()
         {
             // Shifts Current Tetramino's Coordinates Left 1
             // If not valid move, then it moves it back Right 1 to its original position
 
+            bool valid = true;
             Coordinates[] toDelete = currentTetramino.getPiece();
             currentTetramino.ShiftHorizontal(-1);
 
             if (!CheckValidMove(toDelete))
             {
                 currentTetramino.ShiftHorizontal(1);
+                valid = false;
             }
             else
             {
@@ -233,6 +235,8 @@ namespace Tetris
             {
                 StartNextMove();
             }
+
+            return valid;
         }
 
         public bool ShiftRight()

@@ -25,6 +25,8 @@
             <RowDefinition Height="0.33*" ></RowDefinition>
         </Grid.RowDefinitions>
 
+        <TextBlock x:Name="AppTitle" Text="Tetris w/AI" FontWeight="ExtraBold" Foreground="White" Grid.Row="0" FontSize="100" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="250,52,228,204"/>
+
 
         <Button x:Name="AI_Game" Grid.Column="0" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="AI Simulation" Background="AliceBlue" Click="Play_AI" Margin="10"></Button>
         <Button x:Name="Player_Game" Grid.Column="1" Grid.Row="1" FontSize="40" FontWeight="Bold" Content="Play Tetris" Background="AliceBlue" Click="Play_Game" Margin="10"></Button>
