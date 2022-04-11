@@ -23,7 +23,7 @@ namespace Tetris
 
         public Tetramino()
         {
-            coordinates = new Coordinates(Deafult.getX(), Deafult.getY());
+            coordinates = new Coordinates(Deafult.GetX(), Deafult.GetY());
             currentRotation = 0;
             
         }
@@ -35,19 +35,19 @@ namespace Tetris
 
         public void ShiftDown(int rows)
         {
-            int current = coordinates.getY();
-            coordinates.setY(current + rows);
+            int current = coordinates.GetY();
+            coordinates.SetY(current + rows);
         }
 
         public void ShiftHorizontal(int columns)
         {
-            coordinates.setX(coordinates.getX() + columns);
+            coordinates.SetX(coordinates.GetX() + columns);
         }
 
         public void ResetCoordinates()
         {
-            coordinates.setX(Deafult.getX());
-            coordinates.setY(Deafult.getY());
+            coordinates.SetX(Deafult.GetX());
+            coordinates.SetY(Deafult.GetY());
         }
 
         public Coordinates getCoordinates()
@@ -61,7 +61,7 @@ namespace Tetris
 
             for (int i = 0; i < Piece[currentRotation].Length; i++)
             {
-                currentCoordinates[i] = new Coordinates(Piece[currentRotation][i].getX() + coordinates.getX(), Piece[currentRotation][i].getY() + coordinates.getY());
+                currentCoordinates[i] = new Coordinates(Piece[currentRotation][i].GetX() + coordinates.GetX(), Piece[currentRotation][i].GetY() + coordinates.GetY());
             }
 
             return currentCoordinates;

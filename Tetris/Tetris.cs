@@ -74,7 +74,7 @@ namespace Tetris
             {
                 try
                 {
-                    if ((b.GetBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.GetWidth() - 1 || temp[i].getY() == b.GetHeight() - 1)
+                    if ((b.GetBoard()[temp[i].GetX(), temp[i].GetY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].GetX() == 0 || temp[i].GetX() == b.GetWidth() - 1 || temp[i].GetY() == b.GetHeight() - 1)
                     {
                         valid = false;
                     }
@@ -99,7 +99,7 @@ namespace Tetris
 
             for (int i = 0; i < previous.Length; i++)
             {
-                if (toCheck.getX() == previous[i].getX() && toCheck.getY() == previous[i].getY())
+                if (toCheck.GetX() == previous[i].GetX() && toCheck.GetY() == previous[i].GetY())
                 {
                     exists = true;
                 }
@@ -329,8 +329,8 @@ namespace Tetris
 
             for (int i = 0; i < piece.Length; i++)
             {
-                Ypos = piece[i].getY();
-                Xpos = piece[i].getX();
+                Ypos = piece[i].GetY();
+                Xpos = piece[i].GetX();
                 tempCoordinates = new Coordinates(Xpos, Ypos + 1);
                 // Check if the piece is at an invalid space, or if it's collided with another tetramino
                 if (Ypos == b.GetHeight() - 2 || (b.GetBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
@@ -353,7 +353,7 @@ namespace Tetris
 
             for (int i = 0; i < temp.Length; i++)
             {
-                b.SetBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
+                b.SetBoard(temp[i].GetX(), temp[i].GetY(), currentTetramino.getColour());
             }
         }
 

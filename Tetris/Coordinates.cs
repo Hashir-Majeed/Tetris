@@ -26,22 +26,25 @@ namespace Tetris
             YPos = Y;
         }
 
-        public int getX()
+
+        // Get Set Methods
+
+        public int GetX()
         {
             return XPos;
         }
 
-        public int getY()
+        public int GetY()
         {
             return YPos;
         }
 
-        public void setX(int x)
+        public void SetX(int x)
         {
             XPos = x;
         }
 
-        public void setY(int y)
+        public void SetY(int y)
         {
             YPos = y;
         }

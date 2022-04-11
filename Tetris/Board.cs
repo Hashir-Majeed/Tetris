@@ -52,7 +52,7 @@ namespace Tetris
             // Resets Values of a given input Coordinate Array back to 0 [deletes the piece]
             for (int i = 0; i < coordinates.Length; i++)
             {
-                board[coordinates[i].getX(), coordinates[i].getY()].setType(0);
+                board[coordinates[i].GetX(), coordinates[i].GetY()].setType(0);
             }
         }
 
