@@ -41,9 +41,9 @@ namespace Tetris
             // Set the board to be empty, and give the border a distinguishing value of -1
             for (int i = 0; i < HEIGHT; i++)
             {
-                board[0,i].setType(-1);
+                board[0,i].SetType(-1);
 
-                board[WIDTH - 1, i].setType(-1);
+                board[WIDTH - 1, i].SetType(-1);
             }
         }      
 
@@ -52,7 +52,7 @@ namespace Tetris
             // Resets Values of a given input Coordinate Array back to 0 [deletes the piece]
             for (int i = 0; i < coordinates.Length; i++)
             {
-                board[coordinates[i].GetX(), coordinates[i].GetY()].setType(0);
+                board[coordinates[i].GetX(), coordinates[i].GetY()].SetType(0);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Tetris
                 full = true;
                 for (int j = 1; j < WIDTH - 1; j++)
                 {
-                    if (board[j,i].getType() == 0)
+                    if (board[j,i].GetSquareType() == 0)
                     {
                         full = false;
                     }
@@ -90,14 +90,14 @@ namespace Tetris
             // Given a row, reset each of its Square Values to 0 [clear the row]
             for (int i = 1; i < WIDTH - 1; i++)
             {
-                board[i, row].setType(0);
+                board[i, row].SetType(0);
             }
             // Shift each row above down by 1
             for (int i = row; i > 1; i--)
             {
                 for (int j = 0; j < WIDTH -1;j++)
                 {
-                    board[j, i].setType(board[j, i - 1].getType());
+                    board[j, i].SetType(board[j, i - 1].GetSquareType());
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace Tetris
 
             while (!lost && counter < WIDTH - 1)
             {
-                if (board[counter, 1].getType() != 0)
+                if (board[counter, 1].GetSquareType() != 0)
                 {
                     lost = true;
                 }
@@ -137,10 +137,10 @@ namespace Tetris
                 valid = false;
                 for (int j = 0; j < HEIGHT - 1; j++)
                 {
-                    if (board[i, j].getType() != 0)
+                    if (board[i, j].GetSquareType() != 0)
                     {
                         valid = true;
-                    }else if (board[i,j].getType() == 0 && valid)
+                    }else if (board[i,j].GetSquareType() == 0 && valid)
                     {
                         numHoles = numHoles + 1;
                     }
@@ -161,7 +161,7 @@ namespace Tetris
 
             while (!found && j < HEIGHT - 1)
             {
-                if (board[col, j].getType() > 0)
+                if (board[col, j].GetSquareType() > 0)
                 {
                     found = true;
                     height = HEIGHT - 1 - j;
@@ -230,7 +230,7 @@ namespace Tetris
 
         public void SetBoard(int x, int y, int val)
         {
-            board[x, y].setType(val);
+            board[x, y].SetType(val);
         }
     }
 }

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    /*
+     * SQUARE CLASS
+     * Contains the data about the squares - 252 of which make up the game board
+     */
     class Square
     {
         private int pos;
@@ -16,16 +20,16 @@ namespace Tetris
             this.type = type;
         }
 
-        public void setType(int type)
+        public void SetType(int type)
         {
             this.type = type;
         }
 
-        public int getType()
+        public int GetSquareType()
         {
             return type;
         }
-        public int getPos()
+        public int GetPos()
         {
             return pos;
         }

@@ -124,7 +124,7 @@ namespace Tetris
 
             for (int i = 0; i < bindingVals.Length; i++)
             {
-                bindingVals[i] = ColourMatch[tempBoard[i].getType()];
+                bindingVals[i] = ColourMatch[tempBoard[i].GetSquareType()];
             }
 
             Score.Text = "Score: " + game.GetScore();

@@ -74,7 +74,7 @@ namespace Tetris
             {
                 try
                 {
-                    if ((b.GetBoard()[temp[i].GetX(), temp[i].GetY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].GetX() == 0 || temp[i].GetX() == b.GetWidth() - 1 || temp[i].GetY() == b.GetHeight() - 1)
+                    if ((b.GetBoard()[temp[i].GetX(), temp[i].GetY()].GetSquareType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].GetX() == 0 || temp[i].GetX() == b.GetWidth() - 1 || temp[i].GetY() == b.GetHeight() - 1)
                     {
                         valid = false;
                     }
@@ -333,7 +333,7 @@ namespace Tetris
                 Xpos = piece[i].GetX();
                 tempCoordinates = new Coordinates(Xpos, Ypos + 1);
                 // Check if the piece is at an invalid space, or if it's collided with another tetramino
-                if (Ypos == b.GetHeight() - 2 || (b.GetBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
+                if (Ypos == b.GetHeight() - 2 || (b.GetBoard()[Xpos, Ypos + 1].GetSquareType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
                 {
                     landed = true;
                 }
