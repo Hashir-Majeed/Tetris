@@ -24,38 +24,42 @@ namespace Tetris
         public Tetramino()
         {
             coordinates = new Coordinates(Deafult.GetX(), Deafult.GetY());
-            currentRotation = 0;
-            
+            currentRotation = 0;          
         }
 
         public void Rotate()
         {
+            // Increment the rotation matrix index
             currentRotation = (currentRotation + 1) % Piece.Length;
         }
 
         public void ShiftDown(int rows)
         {
+            // Shift the piece down by the specified rows
             int current = coordinates.GetY();
             coordinates.SetY(current + rows);
         }
 
         public void ShiftHorizontal(int columns)
         {
+            // Shift the piece laterally by the specified columns
             coordinates.SetX(coordinates.GetX() + columns);
         }
 
         public void ResetCoordinates()
         {
+            // Set coordinates to their deafults
             coordinates.SetX(Deafult.GetX());
             coordinates.SetY(Deafult.GetY());
         }
 
-        public Coordinates getCoordinates()
+        // Get Set methods
+        public Coordinates GetCoordinates()
         {
             return coordinates;
         }
 
-        public Coordinates[] getPiece()
+        public Coordinates[] GetPiece()
         {
             Coordinates[] currentCoordinates = new Coordinates[Piece[currentRotation].Length];
 
@@ -67,7 +71,7 @@ namespace Tetris
             return currentCoordinates;
         }
 
-        public int getRotationalSymmetry()
+        public int GetRotationalSymmetry()
         {
             return Piece.Length;
         }
@@ -76,7 +80,9 @@ namespace Tetris
         {
             currentRotation = rotation;
         }
-        public abstract int getColour();
+
+        // Abstract Methods
+        public abstract int GetColour();
         public abstract int GetAIMoves();
     }
 }

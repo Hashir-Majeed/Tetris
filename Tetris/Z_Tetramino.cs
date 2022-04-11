@@ -25,7 +25,7 @@ namespace Tetris
             Rotation2
         };
 
-        public override int getColour()
+        public override int GetColour()
         {
             return COLOUR;
         }

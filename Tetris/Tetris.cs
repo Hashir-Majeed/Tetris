@@ -68,7 +68,7 @@ namespace Tetris
             // Checks that a) There is no other piece in its current position and b) that it's still in the bounds of the board
 
             bool valid = true;
-            Coordinates[] temp = currentTetramino.getPiece();
+            Coordinates[] temp = currentTetramino.GetPiece();
 
             for (int i = 0; i < temp.Length; i++)
             {
@@ -130,12 +130,12 @@ namespace Tetris
             // Increments Current Rotation for the Current Tetramino
             // If not a valid move, then the rotation is undone
 
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
             currentTetramino.Rotate();
 
             if (!CheckValidMove(toDelete))
             {
-                for (int i = 0; i < currentTetramino.getRotationalSymmetry() - 1; i++)
+                for (int i = 0; i < currentTetramino.GetRotationalSymmetry() - 1; i++)
                 {
                     currentTetramino.Rotate();
                 }
@@ -150,7 +150,7 @@ namespace Tetris
 
             // If move has ended, the piece is placed, and the next move is begun
 
-            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
+            if (CheckEndMove(currentTetramino.GetPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -162,7 +162,7 @@ namespace Tetris
             // Shifts Current Tetramino's Coordinates Down 1
             // If not valid move, then it moves it back up 1 to its original position
 
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
             bool finished = false;
 
             // Shift a piece down 1
@@ -181,14 +181,14 @@ namespace Tetris
             PlacePiece();
             lost = b.CheckWin();
 
-            if (lost && CheckEndMove(currentTetramino.getPiece())) 
+            if (lost && CheckEndMove(currentTetramino.GetPiece())) 
             {
                 finished = true;
             }
 
             // If move has ended, the piece is placed, and the next move is begun
 
-            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
+            if (CheckEndMove(currentTetramino.GetPiece()) && !lost)
             {
                 StartNextMove();
                 finished = true;
@@ -202,7 +202,7 @@ namespace Tetris
             // Given a number of rows, shifts the current Tetramino up that many times
             // Used by the AI to undo a move
 
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
 
             currentTetramino.ShiftDown(-1 * rows);
 
@@ -225,7 +225,7 @@ namespace Tetris
             // If not valid move, then it moves it back Right 1 to its original position
 
             bool valid = true;
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
             // Shift the tetramino one to the left
             currentTetramino.ShiftHorizontal(-1);
             // But undo the move if it turned out to be invalid
@@ -245,7 +245,7 @@ namespace Tetris
 
             // If move has ended, the piece is placed, and the next move is begun
 
-            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
+            if (CheckEndMove(currentTetramino.GetPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -260,7 +260,7 @@ namespace Tetris
             // If not valid move, then it moves it back Left 1 to its original position
 
             bool valid = true;
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
             // Shifts the tetramino one to the right
             currentTetramino.ShiftHorizontal(1);
             // But undo the move if it turned out to be invalid
@@ -280,7 +280,7 @@ namespace Tetris
 
             // If move has ended, the piece is placed, and the next move is begun
 
-            if (CheckEndMove(currentTetramino.getPiece()) && !lost)
+            if (CheckEndMove(currentTetramino.GetPiece()) && !lost)
             {
                 StartNextMove();
             }
@@ -292,7 +292,7 @@ namespace Tetris
             // Holds the current piece
 
             Tetramino tempTetramino;
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
 
             if (HoldStack.Full())
             {
@@ -349,11 +349,11 @@ namespace Tetris
         {
             // Places a piece on the board
 
-            Coordinates[] temp = currentTetramino.getPiece();
+            Coordinates[] temp = currentTetramino.GetPiece();
 
             for (int i = 0; i < temp.Length; i++)
             {
-                b.SetBoard(temp[i].GetX(), temp[i].GetY(), currentTetramino.getColour());
+                b.SetBoard(temp[i].GetX(), temp[i].GetY(), currentTetramino.GetColour());
             }
         }
 

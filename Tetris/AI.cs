@@ -50,7 +50,7 @@ namespace Tetris
             int bestPosition = -1;
 
             // Iterates through each rotation
-            for (int i = 0; i < currentTetramino.getRotationalSymmetry(); i++)
+            for (int i = 0; i < currentTetramino.GetRotationalSymmetry(); i++)
             {
                 // Iterations through each horizontal position
                 while (count < numConfigurations && !hitEdge)
@@ -76,7 +76,7 @@ namespace Tetris
 
                 }
                 // Prepare board for next Rotation
-                board.DeletePiece(currentTetramino.getPiece());
+                board.DeletePiece(currentTetramino.GetPiece());
                 currentTetramino.ResetCoordinates();
                 PlacePiece();
                 count = 0;
@@ -84,7 +84,7 @@ namespace Tetris
                 RotatePiece();
             }
             // Reset board
-            board.DeletePiece(currentTetramino.getPiece());
+            board.DeletePiece(currentTetramino.GetPiece());
             // Get the best recorded move
             currentTetramino.SetRotation(bestRotation);
             PlacePiece();
@@ -127,7 +127,7 @@ namespace Tetris
             // Shifts a Piece Down. Does NOT start next move since for the AI, other moves still need to be considered
 
 
-            Coordinates[] toDelete = currentTetramino.getPiece();
+            Coordinates[] toDelete = currentTetramino.GetPiece();
             bool finished = false;
 
             currentTetramino.ShiftDown(1);

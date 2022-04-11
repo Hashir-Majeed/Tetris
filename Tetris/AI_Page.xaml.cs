@@ -118,13 +118,13 @@ namespace Tetris
         {
             // Update the Next Piece GUI manually
 
-            Coordinates[] pieceCoords = nextPiece.getPiece();
+            Coordinates[] pieceCoords = nextPiece.GetPiece();
             int[] newIndexes = new int[pieceCoords.Length];
             for (int i = 0; i < pieceCoords.Length; i++)
             {
                 newIndexes[i] = (pieceCoords[i].GetX() - 1) * 4 + pieceCoords[i].GetY() - 1;
             }
-            int colour = nextPiece.getColour();
+            int colour = nextPiece.GetColour();
 
             for (int i = 0; i < UI.Length; i++)
             {

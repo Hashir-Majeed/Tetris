@@ -23,7 +23,7 @@
             Rotation4
         };
 
-        public override int getColour()
+        public override int GetColour()
         {
             return COLOUR;
         }
