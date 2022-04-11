@@ -18,14 +18,24 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for HighScores.xaml
     /// </summary>
+    /// 
+
+    /*
+     * HIGH SCORES PAGE
+     * 
+     * Page for displaying the top 5 high scores
+     * This will distinguish between player and AI users
+     * 
+     */
+
     public partial class HighScores : Window
-    {
-        
+    {     
         public HighScores()
         {
             InitializeComponent();
             TextBlock[] scores = new TextBlock[] { First, Second, Third, Fourth, Fifth};
 
+            // Read high scores file
             string[] fileContents = ReadFile().Split(';');
             List<string> fileContentsCopy = new List<string>();
 
@@ -34,8 +44,10 @@ namespace Tetris
                 fileContentsCopy.Add(fileContents[i]);
             }
 
+            // Sort High Scores
             fileContentsCopy = RecursiveQuickSort(fileContentsCopy);
 
+            // Display top 5 scores
             for (int i = 0;i < scores.Length; i++)
             {
                 if (fileContentsCopy[i][fileContentsCopy[i].Length - 1] == 'P')
@@ -54,7 +66,7 @@ namespace Tetris
         {
             string fileContents = "";
             int count = 0;
-
+            // Try to access file, otherwise throw an exception
             try
             {
                 using (StreamReader reader = new StreamReader("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt"))
@@ -76,13 +88,16 @@ namespace Tetris
 
         static List<string> RecursiveQuickSort(List<string> scores)
         {
+            // Recursively call quick sort to sort the high scores
+
+            // Define pivot
             int pivot = Convert.ToInt32(scores[0].Remove(0,1));
             string pivotPlayer = Convert.ToString(scores[0][0]);
 
             List<string> lower = new List<string>();
             List<string> higher = new List<string>();
 
-
+            // Assign elements based on their value relative to the pivot
             for (int i = 1; i < scores.Count; i++)
             {
                 if (Convert.ToInt32(scores[i].Remove(0,1)) > pivot)
@@ -95,7 +110,7 @@ namespace Tetris
                 }
 
             }
-
+            // Recursively call QuickSort to sort the list
             if (lower.Count != 0)
             {
                 lower = RecursiveQuickSort(lower);
@@ -106,7 +121,6 @@ namespace Tetris
             }
 
             lower.Add(pivot + pivotPlayer);
-
             lower.AddRange(higher);
             return lower;
         }
