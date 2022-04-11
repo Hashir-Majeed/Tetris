@@ -17,12 +17,13 @@ namespace Tetris
     {
         private Board b;
         private int linesCleared;
-        private int TotalLines;
+        private int totalLines;
         private GenericQueue<Tetramino> PieceQueue;
         private GenericStack<Tetramino> HoldStack;
         private Tetramino currentTetramino;
         private Random randomGenerator = new Random();
         private const int NUM_PIECES = 7;
+        private const int HOLD_HEIGHT = 1;
         private int score;
         private int level;
         private Dictionary<int, int> pointMapping;
@@ -36,7 +37,7 @@ namespace Tetris
             // Places first piece
             lost = false;
             canUserHold = true;
-            TotalLines = 0;
+            totalLines = 0;
             score = 0;
             level = 1;
             pointMapping = new Dictionary<int, int>();
@@ -46,7 +47,7 @@ namespace Tetris
             pointMapping.Add(4, 800);
             b = new Board();
             PieceQueue = new GenericQueue<Tetramino>(NUM_PIECES);
-            HoldStack = new GenericStack<Tetramino>(1);
+            HoldStack = new GenericStack<Tetramino>(HOLD_HEIGHT);
             PieceQueue.Enqueue(new SquareTetramino());
             PieceQueue.Enqueue(new StraightTetramino());
             PieceQueue.Enqueue(new T_Tetramino());
@@ -62,6 +63,7 @@ namespace Tetris
 
         public bool CheckValidMove(Coordinates[] previousCoordinates)
         {
+            // returns bool: is valid?
             // Given the previous piece coordinates, check if the current move was valid
             // Checks that a) There is no other piece in its current position and b) that it's still in the bounds of the board
 
@@ -90,6 +92,7 @@ namespace Tetris
 
         private bool CheckExistsInPreviousPiece(Coordinates toCheck, Coordinates[] previous)
         {
+            // returns bool: does the same piece exist in the previous place?
             // Given previous Coordinates, and current Coordinates, Checks that there is no overlap
 
             bool exists = false;
@@ -107,6 +110,7 @@ namespace Tetris
 
         public int DropPiece()
         {
+            // returns int: number of places dropped
             // Hard Drops a piece
             // Iterates shifting down until another piece is hit
 
@@ -154,14 +158,17 @@ namespace Tetris
 
         public bool ShiftDown()
         {
+            // returns bool: has the tetramino hit an object?
             // Shifts Current Tetramino's Coordinates Down 1
             // If not valid move, then it moves it back up 1 to its original position
 
             Coordinates[] toDelete = currentTetramino.getPiece();
             bool finished = false;
 
+            // Shift a piece down 1
             currentTetramino.ShiftDown(1);
 
+            // But undo the move if it turned out to be invalid
             if (!CheckValidMove(toDelete))
             {
                 currentTetramino.ShiftDown(-1);
@@ -170,7 +177,7 @@ namespace Tetris
             {
                 b.DeletePiece(toDelete);
             }
-
+            // Check if the game is lost
             PlacePiece();
             lost = b.CheckWin();
 
@@ -213,13 +220,15 @@ namespace Tetris
 
         public bool ShiftLeft()
         {
+            // returns bool: was the move valid?
             // Shifts Current Tetramino's Coordinates Left 1
             // If not valid move, then it moves it back Right 1 to its original position
 
             bool valid = true;
             Coordinates[] toDelete = currentTetramino.getPiece();
+            // Shift the tetramino one to the left
             currentTetramino.ShiftHorizontal(-1);
-
+            // But undo the move if it turned out to be invalid
             if (!CheckValidMove(toDelete))
             {
                 currentTetramino.ShiftHorizontal(1);
@@ -246,13 +255,15 @@ namespace Tetris
 
         public bool ShiftRight()
         {
+            // returns bool: was the move valid?
             // Shifts Current Tetramino's Coordinates Right 1
             // If not valid move, then it moves it back Left 1 to its original position
 
             bool valid = true;
             Coordinates[] toDelete = currentTetramino.getPiece();
+            // Shifts the tetramino one to the right
             currentTetramino.ShiftHorizontal(1);
-
+            // But undo the move if it turned out to be invalid
             if (!CheckValidMove(toDelete))
             {
                 currentTetramino.ShiftHorizontal(-1);
@@ -308,6 +319,7 @@ namespace Tetris
 
         private bool CheckEndMove(Coordinates[] piece)
         {
+            // returns bool: is move over?
             // Checks if a piece has landed or the piece has hit the top [returns bool true if move has ended]
 
             bool landed = false;
@@ -320,7 +332,7 @@ namespace Tetris
                 Ypos = piece[i].getY();
                 Xpos = piece[i].getX();
                 tempCoordinates = new Coordinates(Xpos, Ypos + 1);
-                
+                // Check if the piece is at an invalid space, or if it's collided with another tetramino
                 if (Ypos == b.getHeight() - 2 || (b.getBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
                 {
                     landed = true;
@@ -351,9 +363,9 @@ namespace Tetris
             canUserHold = true;
             if(linesCleared != 0)
             {
-                TotalLines += linesCleared;
+                totalLines += linesCleared;
                 score += pointMapping[linesCleared] * level;
-                level = 1 + (TotalLines/5);
+                level = 1 + (totalLines/5);
             }
             score += 4;
             currentTetramino = PieceQueue.Dequeue();
