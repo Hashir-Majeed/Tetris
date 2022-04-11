@@ -19,31 +19,41 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
+    /// 
+
+    /*  
+     * AI PAGE GUI
+     * 
+     * This is the main page that gets data from the AI and displays it for the 
+     * AI simulation based off the chosen heuristic values.
+     * 
+     * */
     public partial class AI_Page : Window
     {
 
-        private AI BestPlayer;
-        Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
-        Rectangle[] NextPieceUI;
-        Rectangle[] HoldPieceUI;
+        private AI bestPlayer;
+        Dictionary<int, SolidColorBrush> colourMatch = new Dictionary<int, SolidColorBrush>();
+        Rectangle[] nextPieceUI;
+        Rectangle[] holdPieceUI;
         public AI_Page(double holeWeight, double bumpinessWeight, double heightWeight, double linesWeight)
         {
             
             InitializeComponent();
+            // Initialise UI elements and colours
+            nextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
+            holdPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
+            colourMatch.Add(-1, new SolidColorBrush(Colors.Black));
+            colourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
+            colourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
+            colourMatch.Add(2, new SolidColorBrush(Colors.OrangeRed));
+            colourMatch.Add(3, new SolidColorBrush(Colors.Purple));
+            colourMatch.Add(4, new SolidColorBrush(Colors.DarkBlue));
+            colourMatch.Add(5, new SolidColorBrush(Colors.Orange));
+            colourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
+            colourMatch.Add(7, new SolidColorBrush(Colors.Red));
 
-            NextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
-            HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
-            ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
-            ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
-            ColourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
-            ColourMatch.Add(2, new SolidColorBrush(Colors.OrangeRed));
-            ColourMatch.Add(3, new SolidColorBrush(Colors.Purple));
-            ColourMatch.Add(4, new SolidColorBrush(Colors.DarkBlue));
-            ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
-            ColourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
-            ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
-
-            BestPlayer = new AI(holeWeight, bumpinessWeight, heightWeight, linesWeight);
+            // Creation of the AI
+            bestPlayer = new AI(holeWeight, bumpinessWeight, heightWeight, linesWeight);
             Update();
 
         }
@@ -55,12 +65,14 @@ namespace Tetris
 
         private async Task PlayGame()
         {
+            // Ticker Timer to sequentially execute moves
             int delay = 2250;
-            while (!BestPlayer.IsLost())
+            while (!bestPlayer.IsLost())
             {
                 await Task.Delay(delay);
-                BestPlayer.ComputeMove();
-                delay = BestPlayer.GetDelay();
+                // Make Move
+                bestPlayer.ComputeMove();
+                delay = bestPlayer.GetDelay();
                 Update();
 
             }
@@ -70,7 +82,7 @@ namespace Tetris
             {
                 using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
                 {
-                    writer.WriteLine("A" + BestPlayer.GetScore() + ";");
+                    writer.WriteLine("A" + bestPlayer.GetScore() + ";");
                 }
             }
             catch
@@ -83,27 +95,29 @@ namespace Tetris
 
         private void Update()
         {
-            Square[] tempBoard = BestPlayer.GetBoard().GetUIBoard();
+            // Updating the GUI using data binding
+
+            Square[] tempBoard = bestPlayer.GetBoard().GetUIBoard();
             SolidColorBrush[] bindingVals = new SolidColorBrush[252];
-            Tetramino nextPiece = BestPlayer.GetNextPiece();
+            Tetramino nextPiece = bestPlayer.GetNextPiece();
 
-
-            UpdateNextPiece(nextPiece, NextPieceUI);
-
+            UpdateNextPiece(nextPiece, nextPieceUI);
 
             for (int i = 0; i < bindingVals.Length; i++)
             {
-                bindingVals[i] = ColourMatch[tempBoard[i].getType()];
+                bindingVals[i] = colourMatch[tempBoard[i].getType()];
             }
 
-            Score.Text = "Score: " + BestPlayer.GetScore();
-            Level.Text = "Level: " + BestPlayer.GetLevel();
+            Score.Text = "Score: " + bestPlayer.GetScore();
+            Level.Text = "Level: " + bestPlayer.GetLevel();
             DataContext = bindingVals;
         }
 
 
         private void UpdateNextPiece(Tetramino nextPiece, Rectangle[] UI)
         {
+            // Update the Next Piece GUI manually
+
             Coordinates[] pieceCoords = nextPiece.getPiece();
             int[] newIndexes = new int[pieceCoords.Length];
             for (int i = 0; i < pieceCoords.Length; i++)
@@ -116,7 +130,7 @@ namespace Tetris
             {
                 if (newIndexes.Contains(i))
                 {
-                    UI[i].Fill = ColourMatch[colour];
+                    UI[i].Fill = colourMatch[colour];
                 }
                 else
                 {
