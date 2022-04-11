@@ -77,7 +77,7 @@ namespace Tetris
 
             }
             MessageBox.Show("Game Over!");
-
+            // Write score to the High Scores File
             try
             {
                 using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
