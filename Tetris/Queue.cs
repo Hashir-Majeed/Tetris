@@ -30,6 +30,7 @@ namespace Tetris
 
         public void Enqueue(T toAdd)
         {
+            // Adds the toAdd element to the end of the queue
             if (!isFull)
             {
                 Queue[back] = toAdd;
@@ -44,6 +45,7 @@ namespace Tetris
 
         public T Dequeue()
         {
+            // return T: current front element of the Queue
             T val;
 
             if (back == front && !isFull)
@@ -61,6 +63,7 @@ namespace Tetris
         }
         public T GetFrontPiece()
         {
+            // Returns the front element of the queue without deleting it from the queue
             return Queue[front];
         }
 
