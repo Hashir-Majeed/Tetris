@@ -18,6 +18,13 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for Menu.xaml
     /// </summary>
+    /// 
+
+    /*
+     * MAIN MENU 
+     * Displays 3 options - AI, User game or View High Scores
+     * 
+     */
     public partial class Menu : Page
     {
         Frame Contents;
