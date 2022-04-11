@@ -42,7 +42,7 @@ namespace Tetris
 
         private void Play_Game(object sender, RoutedEventArgs e)
         {
-            Window w = new TestGame();
+            Window w = new PlayerGame();
             w.Show();
         }
 

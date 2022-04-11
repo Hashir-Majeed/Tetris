@@ -18,17 +18,24 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for TestGame.xaml
     /// </summary>
-    public partial class TestGame : Window
+    /// 
+
+    /*
+     * PLAYER GAME GUI 
+     * User Interface for creating a Tetris Game and updating the UI
+     * through data binding
+     */
+    public partial class PlayerGame : Window
     {
         private TetrisGame game;
         Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
         Rectangle[] NextPieceUI;
         Rectangle[] HoldPieceUI;
-        public TestGame()
+        public PlayerGame()
         {
 
             InitializeComponent();
-
+            // Initialise UI elements and colours
             NextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
             HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
             ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
@@ -40,7 +47,7 @@ namespace Tetris
             ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
             ColourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
             ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
-
+            // Create a player game
             game = new TetrisGame();
             Update();
 
@@ -48,6 +55,7 @@ namespace Tetris
 
         private void Key_Pressed(object sender, KeyEventArgs e)
         {
+            // On user input events, fire a function call
             if (e.Key == Key.Up)
             {     
                 game.RotatePiece();
@@ -89,14 +97,16 @@ namespace Tetris
             int delay = 2250;
             while (!game.IsLost())
             {
-
                 await Task.Delay(delay);
+                // Sequentially shift pieces down on the ticker timer event
                 game.ShiftDown();
                 delay = game.GetDelay();
                 Update();
 
             }
-             MessageBox.Show("Game Over!");
+            MessageBox.Show("Game Over!");
+
+            // After the game is over, save score to the High Scores file
             try
             {
                 using (StreamWriter writer = new StreamWriter("C:\\Users\\hashi\\OneDrive\\Desktop\\Scores.txt", append:true))
@@ -114,6 +124,7 @@ namespace Tetris
 
         private void Update()
         {
+            // Update board through data binding
             Square[] tempBoard = game.GetBoard().GetUIBoard();
             SolidColorBrush[] bindingVals = new SolidColorBrush[252];
             Tetramino nextPiece = game.GetNextPiece();
@@ -135,6 +146,7 @@ namespace Tetris
 
         private void UpdateNextPiece(Tetramino nextPiece, Rectangle[] UI)
         {
+            // Update extra UI elements manually
             Coordinates[] pieceCoords = nextPiece.getPiece();
             int[] newIndexes = new int[pieceCoords.Length];
             for (int i = 0; i < pieceCoords.Length; i++)
