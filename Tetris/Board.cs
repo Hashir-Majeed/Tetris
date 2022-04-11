@@ -22,8 +22,8 @@ namespace Tetris
         private Square[,] board;
         private Square[] UIBoard;
 
-        //UIBoard is the one-dimensional array to enable binding. 
-        //Each Element in UIBoard contains a reference to its respective Board Square
+        // UIBoard is the one-dimensional array to enable binding. 
+        // Each Element in UIBoard contains a reference to its respective Board Square
         public Board()
         {
 
@@ -38,7 +38,7 @@ namespace Tetris
                     UIBoard[WIDTH * j + i] = board[i, j];
                 }
             }
-
+            // Set the board to be empty, and give the border a distinguishing value of -1
             for (int i = 0; i < HEIGHT; i++)
             {
                 board[0,i].setType(-1);
@@ -58,8 +58,8 @@ namespace Tetris
 
         public int CheckFullRows()
         {
-            //Iterate through each row. If full, increment count
-            //Returns int: number of full rows
+            // Iterate through each row. If full, increment count
+            // Returns int: number of full rows
             bool full = true;
             int count = 0;
 
@@ -87,12 +87,12 @@ namespace Tetris
 
         private void ClearRow(int row)
         {
-            //Given a row, reset each of its Square Values to 0 [clear the row]
+            // Given a row, reset each of its Square Values to 0 [clear the row]
             for (int i = 1; i < WIDTH - 1; i++)
             {
                 board[i, row].setType(0);
             }
-            //Shift each row above down by 1
+            // Shift each row above down by 1
             for (int i = row; i > 1; i--)
             {
                 for (int j = 0; j < WIDTH -1;j++)
@@ -104,8 +104,8 @@ namespace Tetris
 
         public bool CheckWin()
         {
-            //Check top row. If there is an element there, then the game is lost, so return true
-            //Returns bool: is game lost?
+            // Check top row. If there is an element there, then the game is lost, so return true
+            // Returns bool: is game lost?
 
             bool lost = false;
             int counter = 1;
@@ -126,8 +126,8 @@ namespace Tetris
 
         public int CountHoles()
         {
-            //If a piece has an empty value anywhere beneath a coloured picee, then numHoles is incremented
-            //Return int Number of Holes
+            // If a piece has an empty value anywhere beneath a coloured picee, then numHoles is incremented
+            // Return int: Number of Holes
 
             int numHoles = 0;
             bool valid = false;
@@ -152,7 +152,7 @@ namespace Tetris
 
         private int GetColumnHeight(int col)
         {
-            //Helper function for Bumpiness and Height functions
+            // Helper function for Bumpiness and Height functions
             // Returns height of a given column
 
             int height = 0;
@@ -178,7 +178,8 @@ namespace Tetris
 
         public int TotalHeight()
         {
-            //Gets Sum of Column Heights [int]
+            // returns int: total heights
+            // Gets Sum of Column Heights 
 
             int totalHeight = 0;
 
@@ -193,7 +194,8 @@ namespace Tetris
 
         public int Bumpiness()
         {
-            //Gets average aggreagate change in height between columns [int]
+            // return int: aggregate value for bumpiness
+            // Gets average aggreagate change in height between columns
 
             int totalBumpiness = 0;
 
@@ -204,27 +206,29 @@ namespace Tetris
             return totalBumpiness;
         }
 
+        // Get Set Methods
+
         public Square[] GetUIBoard()
         {
             return UIBoard;
         }
 
-        public int getHeight()
+        public int GetHeight()
         {
             return HEIGHT;
         }
 
-        public int getWidth()
+        public int GetWidth()
         {
             return WIDTH;
         }
 
-        public Square[,] getBoard()
+        public Square[,] GetBoard()
         {
             return board;
         }
 
-        public void setBoard(int x, int y, int val)
+        public void SetBoard(int x, int y, int val)
         {
             board[x, y].setType(val);
         }

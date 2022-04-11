@@ -74,7 +74,7 @@ namespace Tetris
             {
                 try
                 {
-                    if ((b.getBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.getWidth() - 1 || temp[i].getY() == b.getHeight() - 1)
+                    if ((b.GetBoard()[temp[i].getX(), temp[i].getY()].getType() > 0 && !CheckExistsInPreviousPiece(temp[i], previousCoordinates)) || temp[i].getX() == 0 || temp[i].getX() == b.GetWidth() - 1 || temp[i].getY() == b.GetHeight() - 1)
                     {
                         valid = false;
                     }
@@ -333,7 +333,7 @@ namespace Tetris
                 Xpos = piece[i].getX();
                 tempCoordinates = new Coordinates(Xpos, Ypos + 1);
                 // Check if the piece is at an invalid space, or if it's collided with another tetramino
-                if (Ypos == b.getHeight() - 2 || (b.getBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
+                if (Ypos == b.GetHeight() - 2 || (b.GetBoard()[Xpos, Ypos + 1].getType() > 0 && !CheckExistsInPreviousPiece(tempCoordinates, piece)))
                 {
                     landed = true;
                 }
@@ -353,7 +353,7 @@ namespace Tetris
 
             for (int i = 0; i < temp.Length; i++)
             {
-                b.setBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
+                b.SetBoard(temp[i].getX(), temp[i].getY(), currentTetramino.getColour());
             }
         }
 
