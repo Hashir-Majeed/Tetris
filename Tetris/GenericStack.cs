@@ -11,6 +11,7 @@ namespace Tetris
      * 
      * Custom Stack for any generic data type
      * Used to hold the Hold Piece by the user
+     * 
      */
 
     class GenericStack<T>
@@ -29,6 +30,7 @@ namespace Tetris
 
         public void Push(T s)
         {
+            // Push the given object to the stack
 
             if(!(top == depth)){ 
                 objects[top] = s;
@@ -43,7 +45,7 @@ namespace Tetris
 
         public T Pop()
         {
-
+            // Pop the last placed object off the stack
             if (! (top==0))
             {
                 top--;
