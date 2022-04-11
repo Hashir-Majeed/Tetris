@@ -28,25 +28,25 @@ namespace Tetris
     public partial class PlayerGame : Window
     {
         private TetrisGame game;
-        Dictionary<int, SolidColorBrush> ColourMatch = new Dictionary<int, SolidColorBrush>();
-        Rectangle[] NextPieceUI;
-        Rectangle[] HoldPieceUI;
+        Dictionary<int, SolidColorBrush> colourMatch = new Dictionary<int, SolidColorBrush>();
+        Rectangle[] nextPieceUI;
+        Rectangle[] holdPieceUI;
         public PlayerGame()
         {
 
             InitializeComponent();
             // Initialise UI elements and colours
-            NextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
-            HoldPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
-            ColourMatch.Add(-1, new SolidColorBrush(Colors.Black));
-            ColourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
-            ColourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
-            ColourMatch.Add(2, new SolidColorBrush(Colors.OrangeRed));
-            ColourMatch.Add(3, new SolidColorBrush(Colors.Purple));
-            ColourMatch.Add(4, new SolidColorBrush(Colors.DarkBlue));
-            ColourMatch.Add(5, new SolidColorBrush(Colors.Orange));
-            ColourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
-            ColourMatch.Add(7, new SolidColorBrush(Colors.Red));
+            nextPieceUI = new Rectangle[] { NextPiece0, NextPiece1, NextPiece2, NextPiece3, NextPiece4, NextPiece5, NextPiece6, NextPiece7, NextPiece8, NextPiece9, NextPiece10, NextPiece11, NextPiece12, NextPiece13, NextPiece14, NextPiece15 };
+            holdPieceUI = new Rectangle[] { HoldPiece0, HoldPiece1, HoldPiece2, HoldPiece3, HoldPiece4, HoldPiece5, HoldPiece6, HoldPiece7, HoldPiece8, HoldPiece9, HoldPiece10, HoldPiece11, HoldPiece12, HoldPiece13, HoldPiece14, HoldPiece15 };
+            colourMatch.Add(-1, new SolidColorBrush(Colors.Black));
+            colourMatch.Add(0, new SolidColorBrush(Colors.LightGray));
+            colourMatch.Add(1, new SolidColorBrush(Colors.YellowGreen));
+            colourMatch.Add(2, new SolidColorBrush(Colors.OrangeRed));
+            colourMatch.Add(3, new SolidColorBrush(Colors.Purple));
+            colourMatch.Add(4, new SolidColorBrush(Colors.DarkBlue));
+            colourMatch.Add(5, new SolidColorBrush(Colors.Orange));
+            colourMatch.Add(6, new SolidColorBrush(Colors.ForestGreen));
+            colourMatch.Add(7, new SolidColorBrush(Colors.Red));
             // Create a player game
             game = new TetrisGame();
             Update();
@@ -81,7 +81,7 @@ namespace Tetris
                 if (game.CanUserHold())
                 {
                     game.HoldPiece();
-                    UpdateNextPiece(game.GetHoldPiece(), HoldPieceUI);
+                    UpdateNextPiece(game.GetHoldPiece(), holdPieceUI);
                 }
 
             }
@@ -130,12 +130,12 @@ namespace Tetris
             Tetramino nextPiece = game.GetNextPiece();
 
 
-            UpdateNextPiece(nextPiece, NextPieceUI);
+            UpdateNextPiece(nextPiece, nextPieceUI);
 
 
             for (int i = 0; i < bindingVals.Length; i++)
             {
-                bindingVals[i] = ColourMatch[tempBoard[i].GetSquareType()];
+                bindingVals[i] = colourMatch[tempBoard[i].GetSquareType()];
             }
 
             Score.Text = "Score: " + game.GetScore();
@@ -159,7 +159,7 @@ namespace Tetris
             {
                 if (newIndexes.Contains(i))
                 {
-                    UI[i].Fill = ColourMatch[colour];
+                    UI[i].Fill = colourMatch[colour];
                 }
                 else
                 {
